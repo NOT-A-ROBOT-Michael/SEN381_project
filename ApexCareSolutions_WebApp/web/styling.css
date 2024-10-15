@@ -1,0 +1,115 @@
+#top-ribbon{
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    gap: 13%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    
+}
+#logo{
+    align-self: flex-start;
+    height: 100px;
+    margin: 1%;
+}
+#title{
+    padding: 0px;
+    margin: 0px;
+    font-size: 300%;
+    color: white;
+    white-space: nowrap;
+}
+#btn_SignOut{
+    
+    font-weight: 800;
+    font-size: 20px;
+    background-color: white;
+    border: solid 3px black;
+    border-radius: 25px;
+    padding: 5px 10px;
+    
+}
+
+body{
+    background-image: url("Images/Background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+#info-container{
+    
+    margin-left: auto;
+    margin-right: 5%;
+    justify-content: space-between;
+    display: flex;
+    gap: 10%;
+    width: fit-content;
+    align-items: center;
+}
+
+#username{
+    white-space: nowrap;
+    color: white;
+}
+        
+#nav-container{
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    
+}
+
+#list-container{
+    
+    margin: 0px;
+    padding: 0.5% 0%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    gap: 5%;
+    list-style: none;
+}
+
+.links{
+    
+    border: ridge 3px transparent;
+    border-radius: 15px;
+    padding: 10% 25%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    
+}
+
+#current-page{
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.link-container{
+    text-align: center;
+    
+}
+
+.links:hover{
+    border: ridge 3px rgba(0,0,0,0.75);
+    background: white;
+    color: black;
+    position: relative;
+    transition: 0.5s;
+    
+}
+
+#btn_SignOut:hover{
+    background: lightgrey;
+    transition: 0.5s;
+}
+
+
