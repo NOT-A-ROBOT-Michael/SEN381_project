@@ -1,0 +1,142 @@
+
+
+#infoBlock{
+    display: grid;
+    background-image: linear-gradient(#042032 0%, #1893E0 100%);
+    border: solid black 3px;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    grid-template-areas:
+    'warning'
+    'top'
+    'main'
+    'main';
+    margin-top: 5%;
+    padding: 2% 2% 4% 2%;
+}
+
+#top-container{
+    grid-area: top;
+    display: grid;
+    grid-template-areas:
+    'head pass';
+    gap: 5%;
+    
+}
+
+#main-container{
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+    'profile addressText'
+    'profile address'
+    'profile address'
+    'submit submit';
+    gap: 5%;
+    
+}
+
+#head-container{
+    grid-template-rows: 100px 50px;
+    grid-area: head;
+}
+
+#pass-container{
+    width: 60%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: pass;
+    
+}
+
+.head{
+    width: 100%;
+    color: white;
+    white-space: nowrap;
+}
+
+#profile-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10%;
+    row-gap: 8.5%;
+    grid-area: profile;
+}
+
+#addressText-container{
+    grid-area: addressText;
+}
+
+#address-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10%;
+    row-gap: 5%;
+    grid-area: address;
+}
+
+#submit-container{
+    text-align: center;
+    width: 60%;
+    margin-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: submit;
+}
+
+.key{
+    padding: 0px;
+    margin: 0px;
+    color: white;
+    
+    font-weight: bold;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.value{
+    width: 100%;
+    
+    border: solid black 2px;
+    border-radius: 10px;
+}
+
+#warning-container{
+    grid-area: warning;
+}
+
+#warning{
+    
+    
+    text-align: center;
+    background-color: white;
+    
+    border-radius: 15px;
+    margin: 0px;
+    
+    font-size: 2.5vh;
+}
+
+.btn{
+    
+    background-color: lightgray;
+    border-style: hidden;
+    padding: 3.5% 10%;
+    border-radius: 30px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.btn:hover {
+    transition: 0.25s;
+    background-color: white;
+}
+
+#changeProfile{
+    height: 110%;
+}
