@@ -23,10 +23,10 @@ public class ConnectionProvider {
     
     // Enter own database info
     String username = "postgres";
-    String pwd = "1234";
+    String pwd = "";
     
     // Database URL
-    private static final String conURL = "jdbc:postgresql://localhost:5432/ApexCare_DB";
+    private static final String conURL = "jdbc:postgresql://localhost:5432/ApexCareDB";
     
     // Driver
     private static final String DRIVER = "org.postgresql.Driver";
