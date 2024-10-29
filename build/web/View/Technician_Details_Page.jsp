@@ -74,23 +74,7 @@
             
             <div id="infoBlock">
                 <div id="warning-container">
-                <%
-                    ArrayList<String[]> fullClientInfo = (ArrayList<String[]>) request.getAttribute("clientInfo");
-                    String[] clientInfo = fullClientInfo.get(0);
-                    String[] addressInfo = fullClientInfo.get(1);
-                    
-                    String[] messageInfo = (String[]) request.getAttribute("message");
-                    
-                    if(messageInfo != null)
-                    {
-                        String text = messageInfo[0];
-                        String textColour = messageInfo[1];
-                    
-                        out.println("<h1 style=\"color: "+ textColour +"\" id=\"warning\">" + text + "</h1>");
-                    }
-                    
-                    request.setAttribute("message", null);
-                %>
+                
                 </div>
                 <div id="top-container">
                     <div id="head-container">
