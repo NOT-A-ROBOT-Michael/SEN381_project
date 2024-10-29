@@ -40,7 +40,7 @@ public class ChangePassServlet extends HttpServlet
                 System.out.println("Empty Pass");
                 String[] messageDetails = {"Password cannot be empty.", "red"};
                 request.setAttribute("message", messageDetails);
-                request.getRequestDispatcher("/client_ChangePass.jsp").forward(request, response);
+                request.getRequestDispatcher("./View/client_ChangePass.jsp").forward(request, response);
                 
                 
             }
@@ -53,7 +53,7 @@ public class ChangePassServlet extends HttpServlet
                     cp.updateClientPass(newPass, clientIDNum);
                     String[] messageDetails = {"Successfully changed password.", "green"};
                     request.setAttribute("message", messageDetails);
-                    request.getRequestDispatcher("/client_ChangePass.jsp").forward(request, response);
+                    request.getRequestDispatcher("/View/client_ChangePass.jsp").forward(request, response);
                 }
                 catch (Exception e)
                 {
@@ -67,7 +67,7 @@ public class ChangePassServlet extends HttpServlet
                 System.out.println("Incorrect Pass");
                 String[] messageDetails = {"Current password is incorrect.", "red"};
                 request.setAttribute("message", messageDetails);
-                request.getRequestDispatcher("/client_ChangePass.jsp").forward(request, response);
+                request.getRequestDispatcher("./View/client_ChangePass.jsp").forward(request, response);
             }
             
             

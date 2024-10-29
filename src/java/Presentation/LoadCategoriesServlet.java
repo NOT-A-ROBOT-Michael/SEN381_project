@@ -41,7 +41,7 @@ public class LoadCategoriesServlet extends HttpServlet
             
             request.setAttribute("addressInfo", addressInfo);
             request.setAttribute("serviceTypes", serviceTypes);
-            request.getRequestDispatcher("/client_LogProblem.jsp").forward(request, response);
+            request.getRequestDispatcher("./View/client_LogProblem.jsp").forward(request, response);
         }
         catch (Exception e)
         {

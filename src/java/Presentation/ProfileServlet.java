@@ -44,7 +44,7 @@ public class ProfileServlet extends HttpServlet
             fullClientDetails.add(addressInfo);
             
             request.setAttribute("clientInfo", fullClientDetails);
-            request.getRequestDispatcher("/client_ProfilePage.jsp").forward(request, response);
+            request.getRequestDispatcher("/View/client_ProfilePage.jsp").forward(request, response);
         }
         catch (Exception e)
         {

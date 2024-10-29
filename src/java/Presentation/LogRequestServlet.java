@@ -178,7 +178,7 @@ public class LogRequestServlet extends HttpServlet
         }
         
         
-        request.getRequestDispatcher("./client_LogProblem.jsp").forward(request, response);
+        request.getRequestDispatcher("./View/client_LogProblem.jsp").forward(request, response);
     }
     
     public Integer addAddressAndGetID(String country, String state, String city, String streetName)

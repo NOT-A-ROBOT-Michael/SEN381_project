@@ -40,19 +40,19 @@ public class UserServlet extends HttpServlet
             case "C":
             {
                 request.setAttribute("serviceInfo", services);
-                request.getRequestDispatcher("/client_HomePage.jsp").forward(request, response);
+                request.getRequestDispatcher("/View/client_HomePage.jsp").forward(request, response);
                 break;
             }
             case "T":
             {
                 request.setAttribute("serviceInfo", services);
-                request.getRequestDispatcher("/technician_HomePage.jsp").forward(request, response);
+                request.getRequestDispatcher("/View/technician_HomePage.jsp").forward(request, response);
                 break;
             }
             case "CSA":
             {
                 request.setAttribute("serviceInfo", services);
-                request.getRequestDispatcher("/csa_HomePage.jsp").forward(request, response);
+                request.getRequestDispatcher("/View/csa_HomePage.jsp").forward(request, response);
                 break;
             }
             default:

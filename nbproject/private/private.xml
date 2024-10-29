@@ -3,20 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Bussiness_Logic_Layer/NotesThing.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/web/client_HomePage.jsp</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Bussiness_Logic_Layer/Objects/Client_Details.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Bussiness_Logic_Layer/StatusThing.java</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/web/View/Technician_Details_Page.jsp</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/LoadTechnicianProfileServlet.java</file>
             <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/ClientMoreDetailsServlet.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Bussiness_Logic_Layer/TechnicanThing.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Bussiness_Logic_Layer/TechnicianDetailsPage.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Bussiness_Logic_Layer/ContactPageThing.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/UserServlet.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Bussiness_Logic_Layer/ProfileThing.java</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/web/View/technicianProfile.jsp</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/web/index.jsp</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/ChangePassServlet.java</file>
             <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/sen381_project/Data_Layer/ConnectionProvider.java</file>
             <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/ClientViewSurveyServlet.java</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/web/View/technician_HomePage.jsp</file>
             <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/ProfileServlet.java</file>
-            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/web/technician_HomePage.jsp</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/LoginServlet.java</file>
+            <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/LogRequestServlet.java</file>
             <file>file:/C:/Users/arlow/Desktop/3de%20jaar%20universiteit/SEN381/project/Project%20tech%20code/ApexCareSolutions_WebApp_V3/ApexCareSolutions_WebApp/src/java/Presentation/ChangeProfileServlet.java</file>
         </group>
     </open-files>
