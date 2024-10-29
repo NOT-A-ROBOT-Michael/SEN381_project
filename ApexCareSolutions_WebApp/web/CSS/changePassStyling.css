@@ -1,0 +1,84 @@
+#section-container{
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+#main-container{
+    height: 60%;
+    width: fit-content;
+    background-image: linear-gradient(#042032 0%, #1893E0 100%);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    border: solid black 3px;
+    border-radius: 15px;
+}
+
+#pass-container{
+    
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 5%;
+    row-gap: 20%;
+    padding-top: 3%;
+}
+
+.key{
+    margin: 10px;
+    color: white;
+    font-size: 2.5vh;
+    font-weight: bold;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.value{
+    
+    font-size: 2.5vh;
+    border: solid black 2px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+#btn-container{
+    padding-top: 7vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn{
+    
+    background-color: lightgray;
+    border-style: hidden;
+    padding: 3.5% 10%;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 2vh;
+    width: fit-content;
+}
+
+.btn:hover {
+    transition: 0.25s;
+    background-color: white;
+}
+
+#block-title{
+    font-size: 4vh;
+    color: white;
+    text-align: center;
+}
+
+#warning{
+    width: 90%;
+    text-align: center;
+    background-color: white;
+    padding: 2%;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    font-size: 2.5vh;
+}
+
