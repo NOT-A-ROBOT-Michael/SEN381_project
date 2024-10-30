@@ -23,6 +23,7 @@ public class ConnectionProvider {
     
     // Enter own database info
     String username = "postgres";
+    
     String pwd = System.getenv("post-pwd");
     
     // Database URL
