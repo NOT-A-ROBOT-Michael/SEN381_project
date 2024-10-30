@@ -34,13 +34,13 @@
                     else
                     {
                         // If they do not exist they will receive an error.
-                        response.sendRedirect("./?Error=Incorrect user type");
+                        response.sendRedirect("../?Error=Incorrect user type");
                     }
                 }
                 else
                 {
                     // If they do not exist they will receive an error.
-                    response.sendRedirect("./?Error=Please log in first");
+                    response.sendRedirect("../?Error=Please log in first");
                 }
             %>
             
@@ -107,7 +107,7 @@
                                 {
                                     out.println("<li class=\"serviceItem\">"
                                         + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Get\" class=\"view-form\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"POST\" class=\"view-form\">"
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
@@ -117,7 +117,7 @@
                                                 + "</div>"
                                             + "</form>"
                                             + "<div class=\"survey-block\">"
-                                                + "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"Get\">"
+                                                + "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"POST\">"
                                                     + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />"
                                                     + "<input type=\"submit\" value=\"Complete Survey\" name=\"btn-CompleteSurvey\" class=\"btn\"/>"
                                                 + "</form>"
@@ -154,7 +154,7 @@
                                 {
                                     out.println("<li class=\"serviceItem\">"
                                         + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Get\" class=\"view-form\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"POST\" class=\"view-form\">"
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
@@ -164,7 +164,7 @@
                                                 + "</div>"
                                             + "</form>"
                                             + "<div class=\"survey-block\">"
-                                                + "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"Get\">"
+                                                + "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"POST\">"
                                                     + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />"
                                                     + "<input type=\"submit\" value=\"Complete Survey\" name=\"btn-CompleteSurvey\" class=\"btn\"/>"
                                                 + "</form>"
@@ -201,7 +201,7 @@
                                 {
                                     out.println("<li class=\"serviceItem\">"
                                         + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Get\" class=\"view-form\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"POST\" class=\"view-form\">"
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
@@ -211,7 +211,7 @@
                                                 + "</div>"
                                             + "</form>"
                                             + "<div class=\"survey-block\">"
-                                                + "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"Get\">"
+                                                + "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"POST\">"
                                                     + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />"
                                                     + "<input type=\"submit\" value=\"Complete Survey\" name=\"btn-CompleteSurvey\" class=\"btn\"/>"
                                                 + "</form>"

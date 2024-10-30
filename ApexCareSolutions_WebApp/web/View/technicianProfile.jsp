@@ -33,13 +33,13 @@
                     else
                     {
                         // If they do not exist they will receive an error.
-                        response.sendRedirect("./?Error=Incorrect user type");
+                        response.sendRedirect("../?Error=Incorrect user type");
                     }
                 }
                 else
                 {
                     // If they do not exist they will receive an error.
-                    response.sendRedirect("./?Error=Please log in first");
+                    response.sendRedirect("../?Error=Please log in first");
                 }
             %>
             

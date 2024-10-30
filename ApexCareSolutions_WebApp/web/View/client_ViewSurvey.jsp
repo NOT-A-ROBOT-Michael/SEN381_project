@@ -8,6 +8,6 @@
     </head>
     <body>
         <h1>Survey Page</h1>
-        <a href="./client_HomePage.jsp"></a>
+        <a href="./client_HomePage" target="target">Home Page</a>
     </body>
 </html>

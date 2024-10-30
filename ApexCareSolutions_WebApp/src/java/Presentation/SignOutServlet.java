@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/signOut")
 public class SignOutServlet extends HttpServlet
 {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     {
         // Check if a session exists, if it does use it. If there is not a session available, do not create one
@@ -24,7 +25,7 @@ public class SignOutServlet extends HttpServlet
         }
         catch (Exception e)
         {
-            System.out.println("Error while trying to sign out: " + e.getMessage());
+            System.out.println("!E!----- (SignOutServlet) Error, while trying to sign out: " + e.getMessage() + " -----!E!");
         }
         
         

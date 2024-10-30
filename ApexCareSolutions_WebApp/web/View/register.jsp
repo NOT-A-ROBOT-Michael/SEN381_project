@@ -8,6 +8,6 @@
     </head>
     <body>
         <h1>Register User</h1>
-        <a href="./">Back to login</a>
+        <a href="../">Back to login</a>
     </body>
 </html>

@@ -1,4 +1,4 @@
-
+// The following servlet is used to send SMSs to technicians when they are assigned to a new service
 package Presentation;
 /*
 // Servlet
@@ -22,6 +22,7 @@ import java.time.LocalDate;
 @WebServlet("/sendMessage")
 public class SendMessageServlet extends HttpServlet
 {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         String ACCOUNT_SID = System.getenv("twil_ID");

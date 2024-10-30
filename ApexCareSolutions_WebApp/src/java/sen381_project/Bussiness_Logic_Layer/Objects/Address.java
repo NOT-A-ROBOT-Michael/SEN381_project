@@ -1,13 +1,17 @@
-
+// The following is used to for the address object
 package sen381_project.Bussiness_Logic_Layer.Objects;
 
-public class Address {
+public class Address
+{
+    // Fields for the address
     Integer addressID;
     String country, state, city, streetName;
     
+    // Empty Constructor
     public Address()
     {}
     
+    // Constructor that contains the address info
     public Address(Integer addressID, String country, String state, String city, String streetName)
     {
         this.addressID = addressID;
@@ -17,16 +21,7 @@ public class Address {
         this.streetName = streetName;
     }
     
-    public Address setCountry(String country){
-        this.country = country;
-        return this;
-    }
-    
-    public Address setState(String country){
-        this.country = country;
-        return this;
-    }
-    
+    // The following returns the address information in a string array format
     public String[] getAddress()
     {
         String[] address = {this.addressID.toString(), this.country, this.state, this.city, this.streetName};
@@ -34,6 +29,7 @@ public class Address {
         return address;
     }
     
+    // Used in the event of an address object needs to be displayed
     @Override
     public String toString()
     {

@@ -10,56 +10,85 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
-import sen381_project.Bussiness_Logic_Layer.Logic;
-import jakarta.servlet.jsp.PageContext;
+import sen381_project.Bussiness_Logic_Layer.ServiceLogic;
 
 // The following servlet can be used by the client-, technician- and call service agent page
 @WebServlet(urlPatterns = {"/client_HomePage", "/technician_HomePage", "/csa_HomePage"})
 public class UserServlet extends HttpServlet
 {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println("Hello from the client_HomePage servlet");
         
+        // Used to get the session info
         HttpSession session = request.getSession(false);
         
-        Logic logic = new Logic();
-        
-        String[] userDetails = (String[]) session.getAttribute("userDetails");
-        // Gets the user ID
-        String userID = userDetails[0];
-        String userType = userID.split("_")[0];
-        Integer userIDNum = Integer.parseInt(userID.split("_")[1]);
-        
-        ArrayList<String[]> services = logic.getServices(userIDNum);
+        ServiceLogic sl = new ServiceLogic();
         
         
         
-        switch(userType)
+        try
         {
-            case "C":
+            String[] userDetails = (String[]) session.getAttribute("userDetails");
+                
+
+            if(userDetails != null)
             {
-                request.setAttribute("serviceInfo", services);
-                request.getRequestDispatcher("/View/client_HomePage.jsp").forward(request, response);
-                break;
+                // Gets the user ID in the session data
+                String userID = userDetails[0];
+
+                // The following gets the user type from the ID
+                String userType = userID.split("_")[0];
+
+                // The following gets the user ID number from the user ID
+                Integer userIDNum = Integer.parseInt(userID.split("_")[1]);
+
+                // The following gets the basic service information to be displayed in the client home page.
+                ArrayList<String[]> newServices = sl.serviceDetails(userIDNum);
+                
+                // The following switch determines which jsp page needs to be loaded
+                switch(userType)
+                {
+                    case "C":
+                    {
+                        // Client
+                        request.setAttribute("serviceInfo", newServices);
+                        request.getRequestDispatcher("./View/client_HomePage.jsp").forward(request, response);
+                        break;
+                    }
+                    case "T":
+                    {
+                        // Technician
+                        request.setAttribute("serviceInfo", newServices);
+                        request.getRequestDispatcher("./View/technician_HomePage.jsp").forward(request, response);
+                        break;
+                    }
+                    case "CSA":
+                    {
+                        // Call Service Agent
+                        request.setAttribute("serviceInfo", newServices);
+                        request.getRequestDispatcher("./View/csa_HomePage.jsp").forward(request, response);
+                        break;
+                    }
+                    default:
+                    {
+                        // A warning in the event a user being called that does not exist
+                        System.out.println("!Warning!----- User type does not exist. -----!Warning!");
+                        break;
+                    }
+                }
             }
-            case "T":
+            else
             {
-                request.setAttribute("serviceInfo", services);
-                request.getRequestDispatcher("/View/technician_HomePage.jsp").forward(request, response);
-                break;
+                response.sendRedirect("./?Error=Please log in first");
             }
-            case "CSA":
-            {
-                request.setAttribute("serviceInfo", services);
-                request.getRequestDispatcher("/View/csa_HomePage.jsp").forward(request, response);
-                break;
-            }
-            default:
-            {
-                System.out.println("User type does not exist.");
-                break;
-            }
+                
         }
+        catch (Exception e)
+        {
+            System.out.println("!E!----- (UserServlet) Error, getting basic service information: " + e.getMessage() + " -----!E!");
+        }
+        
+            
     }
 }

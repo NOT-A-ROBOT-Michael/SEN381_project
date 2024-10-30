@@ -8,6 +8,6 @@
     </head>
     <body>
         <h1>More Details</h1>
-        <a href="./client_HomePage">Back to Home</a>
+        <a href="./client_HomePage" target="target">Home Page</a>
     </body>
 </html>

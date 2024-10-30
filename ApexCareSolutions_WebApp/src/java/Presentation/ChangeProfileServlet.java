@@ -1,9 +1,6 @@
-
+// The following servlet handles any changes that are being made to the client's profile
 package Presentation;
 
-import sen381_project.Bussiness_Logic_Layer.Objects.Address;
-import sen381_project.Bussiness_Logic_Layer.Objects.Client_Details;
-import sen381_project.Data_Layer.ConnectionProvider;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,101 +9,129 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import sen381_project.Bussiness_Logic_Layer.ClientProfileLogic;
 
 
 @WebServlet("/client_ChangeProfile")
 public class ChangeProfileServlet extends HttpServlet
 {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        HttpSession session = request.getSession();
-        
+    {  
+        // The following ArrayList is used to store the changed user information
         ArrayList<String[]> fullClientDetails = new ArrayList<>();
         
-        String clientID = request.getParameter("txt_clientID");
-        String firstName = request.getParameter("txt_firstName");
-        String lastName = request.getParameter("txt_lastName");
-        String phoneNumber = request.getParameter("txt_phoneNumber");
-        String email = request.getParameter("txt_email");
+        // Used to update session data
+        HttpSession session = request.getSession();
         
-        String country = request.getParameter("drop_country");
-        String state = request.getParameter("drop_state");
-        String city = request.getParameter("drop_city");
-        String streetName = request.getParameter("txt_StreetName");
+        String[] clientSessionDetails = (String[]) session.getAttribute("userDetails");
         
-        System.out.println("User Info check: " + clientID + ", " + firstName + ", " + lastName + ", " + phoneNumber + ", " + email);
-        
-        System.out.println("Address Info check: " + country + ", " + state + ", " + city + ", " + streetName);
-        
-        // Check if any value changed
-        
-        Integer clientIDNum = Integer.parseInt(clientID.split("_")[1]);
-        
-        ConnectionProvider cp = new ConnectionProvider();
-        
-        try
+        if(clientSessionDetails != null)
         {
-            Client_Details cd = cp.getClientDetails(clientIDNum);
+            // Gets the client's Address ID from the details stored in the session
+            String userType = clientSessionDetails[0].split("_")[0];
             
-            String[] originalDetails = cd.getClientInfo();
-            
-            Integer addressID = Integer.parseInt(originalDetails[1]);
-            
-            Address a = cp.getAddress(addressID);
-            
-            String[] addressInfo = a.getAddress();
-            
-            // {fullClientID, this.addressID.toString(), this.firstName, this.lastName, this.phoneNumber, this.email, this.password}
-            
-            if(!firstName.isBlank() && !lastName.isBlank() && !phoneNumber.isBlank() && !email.isBlank() && !country.equals("None") && !state.equals("None") && !city.equals("None") && !streetName.isBlank())
+            if(userType.equals("C"))
             {
-                if(!originalDetails[2].equals(firstName) || !originalDetails[3].equals(lastName) || !originalDetails[4].equals(phoneNumber) || !originalDetails[5].equals(email))
-                {
-                    // Update client
-                    cp.updateClientInfo(clientIDNum, firstName, lastName, phoneNumber, email);
-                    String[] messageInfo = {"Successfully updated client info", "green"};
-                    request.setAttribute("message", messageInfo);
-                    
-                    originalDetails[2] = firstName;
-                    originalDetails[3] = lastName;
-                    originalDetails[4] = phoneNumber;
-                    originalDetails[5] = email;
-                }
+                // Client details (Inputs)
+                String clientID = request.getParameter("txt_clientID");
+                String firstName = request.getParameter("txt_firstName");
+                String lastName = request.getParameter("txt_lastName");
+                String phoneNumber = request.getParameter("txt_phoneNumber");
+                String email = request.getParameter("txt_email");
 
-                if(!addressInfo[1].equals(country) || !addressInfo[2].equals(state) || !addressInfo[3].equals(city) || !addressInfo[4].equals(streetName))
+                // Client Address (Inputs)
+                String country = request.getParameter("drop_country");
+                String state = request.getParameter("drop_state");
+                String city = request.getParameter("drop_city");
+                String streetName = request.getParameter("txt_StreetName");
+
+
+                // Gets the ID number of the client's ID
+                Integer clientIDNum = Integer.parseInt(clientID.split("_")[1]);
+
+                ClientProfileLogic cpl = new ClientProfileLogic();
+
+                try
                 {
-                    // Update Address
-                    cp.updateClientAddress(addressID, country, state, city, streetName);
-                    String[] messageInfo = {"Successfully updated client info", "green"};
-                    request.setAttribute("message", messageInfo);
-                    
-                    addressInfo[1] = country;
-                    addressInfo[2] = state;
-                    addressInfo[3] = city;
-                    addressInfo[4] = streetName;
+                    String[] originalDetails = cpl.clientDetails(clientIDNum);
+
+                    Integer addressID = Integer.parseInt(originalDetails[1]);
+
+                    String[] addressInfo = cpl.clientAddress(addressID);
+
+                    //String[] details = {"C_" + clientID, addressID, firstName, lastName, phoneNum, email};
+
+
+                    // The following checks if the user entered all the required information
+                    if(!firstName.isBlank() && !lastName.isBlank() && !phoneNumber.isBlank() && !email.isBlank() && !country.equals("None") && !state.equals("None") && !city.equals("None") && !streetName.isBlank())
+                    {
+                        // Checks if the client changed their details
+                        if(!originalDetails[2].equals(firstName) || !originalDetails[3].equals(lastName) || !originalDetails[4].equals(phoneNumber) || !originalDetails[5].equals(email))
+                        {
+                            // Update client
+                            cpl.updateClientDetails(clientIDNum, firstName, lastName, phoneNumber, email);
+                            String[] messageInfo = {"Successfully updated client info", "green"};
+                            request.setAttribute("message", messageInfo);
+
+                            // Sets new originalDetails
+                            originalDetails[2] = firstName;
+                            originalDetails[3] = lastName;
+                            originalDetails[4] = phoneNumber;
+                            originalDetails[5] = email;
+
+                            // Add changes to session storage
+                            clientSessionDetails[2] = firstName;
+                            clientSessionDetails[3] = lastName;
+                            clientSessionDetails[4] = phoneNumber;
+                            clientSessionDetails[5] = email;
+                        }
+
+                        // Checks if the client changed their address information
+                        if(!addressInfo[1].equals(country) || !addressInfo[2].equals(state) || !addressInfo[3].equals(city) || !addressInfo[4].equals(streetName))
+                        {
+                            // Update Address
+                            cpl.updateClientAddress(addressID, country, state, city, streetName);
+                            String[] messageInfo = {"Successfully updated client info", "green"};
+                            request.setAttribute("message", messageInfo);
+
+                            // Sets new originalDetails
+                            addressInfo[1] = country;
+                            addressInfo[2] = state;
+                            addressInfo[3] = city;
+                            addressInfo[4] = streetName;
+                        }
+                    }
+                    else
+                    {
+                        // Warning
+                        String[] messageInfo = {"Missing values, please make sure to enter all the required information.", "red"};
+                        request.setAttribute("message", messageInfo);
+                    }
+
+                    // Adds new details and address to the ArrayList to be displayed on the profile page
+                    fullClientDetails.add(originalDetails);
+                    fullClientDetails.add(addressInfo);
+
+                    session.setAttribute("userDetails", clientSessionDetails);
+                    request.setAttribute("clientInfo", fullClientDetails);
+                    request.getRequestDispatcher("./View/client_ProfilePage.jsp").forward(request, response);
+                }
+                catch (Exception e)
+                {
+                    System.out.println("!E!----- (ChangeProfileServlet) Error, while trying to update client profile information: " + e.getMessage() + " -----!E!");
                 }
             }
             else
             {
-                String[] messageInfo = {"Missing values, please make sure to enter all the required information.", "red"};
-                request.setAttribute("message", messageInfo);
+                // If the user is the wrong type they will receive an error.
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-            
-            System.out.println(cd);
-            
-            fullClientDetails.add(originalDetails);
-            fullClientDetails.add(addressInfo);
-            
-            request.setAttribute("clientInfo", fullClientDetails);
-            
-            request.getRequestDispatcher("./View/client_ProfilePage.jsp").forward(request, response);
         }
-        catch (Exception e)
+        else
         {
-            System.out.println("Something went wrong while trying to update client profile information: " + e.getMessage());
+            // If they do not exist they will receive an error.
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
-        
-        
-        
     }
 }

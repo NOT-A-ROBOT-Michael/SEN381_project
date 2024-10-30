@@ -1,4 +1,4 @@
-// The following loads the more details page on the client's side
+// The following is used to load the jsp file where the users can change their password
 package Presentation;
 
 import jakarta.servlet.ServletException;
@@ -9,14 +9,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-
-@WebServlet("/viewMoreDetails")
-public class ClientMoreDetailsServlet extends HttpServlet
+@WebServlet("/client_ChangePass")
+public class LoadPassChangePage extends HttpServlet
 {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        
         HttpSession session = request.getSession();
         
         String[] clientSessionDetails = (String[]) session.getAttribute("userDetails");
@@ -28,8 +26,8 @@ public class ClientMoreDetailsServlet extends HttpServlet
             
             if(userType.equals("C"))
             {
-                // Directs the client to the page that shows more information about their service
-                request.getRequestDispatcher("./View/client_ViewMoreDetails.jsp").forward(request, response);
+                // Directs the user to the page where they can change their current password
+                request.getRequestDispatcher("./View/client_ChangePass.jsp").forward(request, response);
             }
             else
             {

@@ -16,7 +16,9 @@ import java.io.IOException;
  * @author arlow
  */
 @WebServlet("/technicianProfile")
-public class LoadTechnicianProfileServlet extends HttpServlet {
+public class LoadTechnicianProfileServlet extends HttpServlet
+{
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         request.getRequestDispatcher("./View/technicianProfile.jsp").forward(request, response);
