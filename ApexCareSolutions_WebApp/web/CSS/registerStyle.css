@@ -1,0 +1,174 @@
+/* Ribbon styling */
+.ribbon {
+    width: 100%;
+    height: 100px; /* Adjust the height if needed */
+    background-image: linear-gradient(#513018 0%, #DE9836 100%);
+    display: flex;
+    align-items: center;
+    padding-left: 20px; /* Space from left for logo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: shadow for effect */
+    position: fixed; /* Keeps ribbon at the top of the screen */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensures it stays on top */
+}
+
+#top-ribbon{
+    background-image: linear-gradient(#513018 0%, #DE9836 100%);
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    
+}
+
+/* Logo styling */
+.logo {
+    position: absolute;
+    height: 100px;
+    margin: 1%;
+}
+
+.title{
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 500%;
+    white-space: nowrap;
+    color: white; 
+}
+
+body {
+    background-image: url('../Images/Background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0px;
+}
+
+#main-container{
+    margin: 5% 0%;
+    display: flex;
+    align-items: center;
+    
+}
+
+#container{
+    width: 40%;
+    background-image: linear-gradient(#042032 0%, #1893E0 100%);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    border: solid black 3px;
+    border-radius: 15px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+h2{
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* Center-align inputs vertically within the row */
+    justify-content: center; /* Center the entire group horizontally */
+    margin-bottom: 15px;
+}
+
+label {
+/*    display: inline-block;*/
+    width: 20%;
+    min-width: 150px; 
+    color: white;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"],
+select{
+    width: 65%; /* To fit next to the label */
+    max-width: 400px; 
+    padding: 8px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+
+input[type="submit"],
+button {
+    background-color: white;
+    color: #000; 
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 30%;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: lightgray;
+    
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Return to Login button */
+.return-login-button{ 
+    font-size: 1.5vw;
+    color: black;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    width: fit-content;
+    
+    padding: 1%;
+    white-space: nowrap;
+    
+}
+
+
+#btn-container{
+    text-align: right;
+    width: 100%;
+}
+
+.warning{
+    text-align: center;
+    background-color: white;
+    
+    border-radius: 15px;
+    color: red;
+    margin: 0px;
+    margin-bottom: 3%;
+    padding: 3% 0%;
+    font-size: 2.5vh;
+    font-weight: bolder;
+}
+
+

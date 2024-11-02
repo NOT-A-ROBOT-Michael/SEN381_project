@@ -91,10 +91,7 @@
                         
                     </li>
                     <%
-                    
                         ArrayList<String[]> services = (ArrayList<String[]>) request.getAttribute("serviceInfo");
-                        
-                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
                         
                         Integer i = 1;
                         
@@ -138,9 +135,6 @@
                         </div>
                     </li>
                     <%
-                        
-                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
-                        
                         if(services != null)
                         {
                             for(var service : services)
@@ -181,9 +175,6 @@
                         </div>
                     </li>
                     <%
-                        
-                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
-                        
                         if(services != null)
                         {
                             for(var service : services)

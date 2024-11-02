@@ -23,7 +23,6 @@ public class ConnectionProvider {
     
     // Enter own database info
     String username = "postgres";
-    
     String pwd = System.getenv("post-pwd");
     
     // Database URL
@@ -140,10 +139,10 @@ public class ConnectionProvider {
                             System.out.println("!Info!----- The user is a Call Service Agent. -----!Info!");
                             
                             // Items required for this user type
-                            String technicianID = result.getString("CallServiceAgentID");
+                            String csaID = result.getString("CallServiceAgentID");
                             
                             // Return a array of details
-                            String[] details = {"CSA_" + technicianID, firstName, lastName, phoneNum, email};
+                            String[] details = {"CSA_" + csaID, firstName, lastName, phoneNum, email};
                             return details;
                         }
                         default:
@@ -170,7 +169,7 @@ public class ConnectionProvider {
     public ArrayList<Client_Service> getClientService(Integer cID) throws ClassNotFoundException
     {
         // A view was created to get the specific data that will be displayed to the client
-        String query = "SELECT * FROM clientServiceView WHERE \"ClientID\" = ?";
+        String query = "SELECT * FROM \"clientServiceView\" WHERE \"ClientID\" = ?";
         // In the event of a client having multiple services, we store them in an ArrayList
         ArrayList<Client_Service> services = new ArrayList<>();
         

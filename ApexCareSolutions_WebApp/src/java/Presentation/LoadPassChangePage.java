@@ -24,7 +24,7 @@ public class LoadPassChangePage extends HttpServlet
             // Gets the client's Address ID from the details stored in the session
             String userType = clientSessionDetails[0].split("_")[0];
             
-            if(userType.equals("C"))
+            if(!userType.isBlank())
             {
                 // Directs the user to the page where they can change their current password
                 request.getRequestDispatcher("./View/client_ChangePass.jsp").forward(request, response);

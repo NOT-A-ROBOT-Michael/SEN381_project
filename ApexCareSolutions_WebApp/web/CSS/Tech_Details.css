@@ -10,14 +10,14 @@
     border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 60%;
     grid-template-areas:
     'warning'
     'top'
     'main'
     'main';
-    margin-top: 3.5%;
-    padding: 2% 2% 12% 2%;
+    margin-top: 5%;
+    padding: 2% 2% 4% 2%;
 }
 
 #top-container{
@@ -44,7 +44,6 @@
 #head-container{
     grid-template-rows: 100px 50px;
     grid-area: head;
-    display: contents;
 }
 
 #pass-container{
@@ -63,38 +62,25 @@
 }
 
 #profile-container{
-   /* width: 100%;
-    display: block;
+    width: 100%;
+    display: grid;
     grid-template-columns: auto auto;
     column-gap: 10%;
     row-gap: 8.5%;
-    grid-area: profile;*/
-   width: 90%;
-   display: flex;
-   flex-direction: column;
-   
+    grid-area: profile;
 }
-
-#profile-container #TechText{
-    height: 15px;
-}
-
-
 
 #addressText-container{
     grid-area: addressText;
 }
 
 #address-container{
-   width: 90%;
-   
-   display: flex;
-   flex-direction: column;
-   
-}
-
-#address-container input{
-    height: 15px
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10%;
+    row-gap: 5%;
+    grid-area: address;
 }
 
 #submit-container{
@@ -147,8 +133,6 @@
     border-radius: 30px;
     font-weight: bold;
     width: fit-content;
-    margin-top: 12%;
-   /* margin-left: 10%;*/
 }
 
 .btn:hover {
@@ -158,26 +142,4 @@
 
 #changeProfile{
     height: 110%;
-}
-#Dropdown{
-    padding: 2%;
-    border-radius: 15px;
-}
-#clientText{
-    height: 7%;
-}
-#TechText{
-    height: 100%;
-}
-#profile-container #NoteText{
-    height: 40px;
-    position: relative;
-}
-#bottomButton{
-    
-    margin-top: 2%;
-}
-#bottomButton2{
-    margin-left: 206%;
-    margin-top: 2%;
 }

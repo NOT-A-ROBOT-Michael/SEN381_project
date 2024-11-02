@@ -37,8 +37,7 @@ body{
 }
 
 #container{
-    height: 70%;
-    width: fit-content;
+    width: 50%;
     background-image: linear-gradient(#042032 0%, #1893E0 100%);
     margin-left: auto;
     margin-right: auto;
@@ -48,7 +47,7 @@ body{
 }
 
 #main-container{
-    height: 70vh;
+    margin: 5% 0%;
     display: flex;
     align-items: center;
     
@@ -62,10 +61,9 @@ body{
     
     width: 100%;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 10% auto;
     column-gap: 10%;
-    row-gap: 20%;
-    padding-top: 3%;
+    align-items: center;
 }
 
 .key{
@@ -78,15 +76,14 @@ body{
 }
 
 .value{
-    
-    font-size: 2.5vh;
-    border: solid black 2px;
+    height: 50%;
+    font-size: 2vh;
+    border: none;
     border-radius: 10px;
     width: 100%;
 }
 
 #block-title{
-    font-size: 2.5vh;
     color: white;
     text-align: center;
 }
@@ -107,16 +104,16 @@ body{
 }
 
 #btn-container{
-    padding-top: 10vh;
+    margin-top: 3%;
     display: flex;
     justify-content: space-evenly;
 }
 
 .btn{
     
-    background-color: lightgray;
+    background-color: white;
     border-style: hidden;
-    padding: 3.5% 10%;
+    padding: 3% 10%;
     border-radius: 30px;
     font-weight: bold;
     font-size: 2vh;
@@ -125,5 +122,5 @@ body{
 
 .btn:hover {
     transition: 0.25s;
-    background-color: white;
+    background-color: lightgray;
 }

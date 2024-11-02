@@ -95,8 +95,6 @@
                     
                         ArrayList<String[]> services = (ArrayList<String[]>) request.getAttribute("serviceInfo");
                         
-                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
-                        
                         Integer i = 1;
                         
                         if(services != null)
@@ -144,8 +142,6 @@
                     </li>
                     <%
                         
-                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
-                        
                         if(services != null)
                         {
                             for(var service : services)
@@ -191,8 +187,6 @@
                     </li>
                     <%
                         
-                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
-                        
                         if(services != null)
                         {
                             for(var service : services)
@@ -205,7 +199,7 @@
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
-                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\""+ service[2] + " " + service[3] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\"Unassigned\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service[4] +"\"/>"
                                                     + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
                                                 + "</div>"

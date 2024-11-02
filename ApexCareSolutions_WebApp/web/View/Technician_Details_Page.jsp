@@ -80,10 +80,10 @@
                     <div id="head-container">
 
                         <h1 class="head">Task Info:</h1>
-                        <h1 class="head">Client Info:</h1>
+
                     </div>
 
-                     
+                    
                 </div>
                     
                 
@@ -93,68 +93,68 @@
                         <div id="profile-container">
                             
                             <p class="key">Technician ID:</p>
-                            <input type="text" name="txt_clientID" value="" size="15" readonly="readonly" class="value"id="TechText"/>
-                           
-                            
+                            <input type="text" name="txt_clientID" value="" size="15" readonly="readonly" class="value"/>
                             <p class="key">First Name:</p>
-                            <input type="text" name="txt_firstName" value="" size="15" class="value"id="TechText"/>
-                            
+                            <input type="text" name="txt_firstName" value="" size="15" class="value"/>
                             <p class="key">Last Name:</p>
-                            <input type="text" name="txt_lastName" value="" size="15" class="value"id="TechText"/>
-                            
+                            <input type="text" name="txt_lastName" value="" size="15" class="value"/>
                             <p class="key">Phone Number:</p>
-                            <input type="text" name="txt_phoneNumber" value="" size="15" class="value"id="TechText"/>
-                            
+                            <input type="text" name="txt_phoneNumber" value="" size="15" class="value"/>
                             <p class="key">Email:</p>
-                            <input type="text" name="txt_email" value="" size="15" class="value"id="TechText"/>
-                            
+                            <input type="text" name="txt_email" value="" size="15" class="value"/>
                             <p class="key">Notes:</p>
-                            <input type="text" name="txt_Notes" value="" size="15" class="value"id="NoteText"/>
-                            <input type="submit" value="Save Note" name="saveNote" class="btn" id="saveProfile"/>
+                            <input type="text" name="txt_Notes" value="" size="15" class="value"/>
                             
+                            <div id="submit-container">
+
+                            <input type="submit" value="Save Info" name="saveNote" class="btn" id="saveProfile"/>
+
+                            </div>
+                        </div>
+                        
+                        <div id="addressText-container">
+                            
+                            <h1 class="head">Client Info:</h1>
+                            
+                        </div>
+                        <div id="address-container">
+
+                            
+                            <p class="key"><label for="drop_country">Country:</label></p>
+                            <input type="text" name="txt_Country" value="" size="" class="value"/>
+                            
+                            <p class="key"><label for="drop_state">State:</label></p>
+                            <input type="text" name="txt_State" value="" size="" class="value"/>
+                            
+                            <p class="key"><label for="drop_city">City:</label></p>
+                            <input type="text" name="txt_City" value="" size="" class="value"/>
+
+                            <p class="key"><label for="txt_StreetName">Street name:</label></p>
+                            <input type="text" name="txt_StreetName" size="" placeholder="" value="" class="value"/>
+
+                            <p class="key"><label for="date">Requested Date:</label></p>
+                            <input type="text" name="txt_Date" value="" size="" class="value"/>
+                            
+                            <p class="key"><label for="clientName">Client Name:</label></p>
+                            <input type="text" name="txt_ClinetName" value="" size="" class="value"/>
+                            
+                            <p class="key"><label for="clientProblem">Client Problem:</label></p>
+                            <input type="text" name="txt_ClinetProblem" value="" size="" class="value"/>
+                            
+                            <p class="key"><label for="clientPhone">Client Phone:</label></p>
+                            <input type="text" name="txt_ClinetPhone" value="" size="" class="value"/>
+
+                        </div> 
+                        <div>
                             <p class="key"><label for="ChangeStatus">Change Status:</label></p>
-                            <select name="Change Status" id="Dropdown">
+                            <select name="Change Status">
                                 <option>In Progress</option>
                                 <option>Outstanding</option>
                                 <option>Finished </option>
                             </select>
                             
-                            <input type="submit" value="Update Status" name="Update_Status" class="btn" id="bottomButton"/>
-                            <input type="submit" value="Go Back" name="Go_Back" class="btn" id="bottomButton2"/>
-                            
-                        </div>
-                        
-                       
-                        <div id="address-container">
-
-                            
-                            <p class="key"><label for="drop_country">Country:</label></p>
-                            <input type="text" name="txt_Country" value="" size="" class="value" id="clientText"/>
-                            
-                            <p class="key"><label for="drop_state">State:</label></p>
-                            <input type="text" name="txt_State" value="" size="" class="value" id="clientText"/>
-                            
-                            <p class="key"><label for="drop_city">City:</label></p>
-                            <input type="text" name="txt_City" value="" size="" class="value" id="clientText"/>
-
-                            <p class="key"><label for="txt_StreetName">Street name:</label></p>
-                            <input type="text" name="txt_StreetName" size="" placeholder="" value="" class="value"id="clientText"/>
-
-                            <p class="key"><label for="date">Requested Date:</label></p>
-                            <input type="text" name="txt_Date" value="" size="" class="value"id="clientText"/>
-                            
-                            <p class="key"><label for="clientName">Client Name:</label></p>
-                            <input type="text" name="txt_ClinetName" value="" size="" class="value"id="clientText"/>
-                            
-                            <p class="key"><label for="clientProblem">Client Problem:</label></p>
-                            <input type="text" name="txt_ClinetProblem" value="" size="" class="value"id="clientText"/>
-                            
-                            <p class="key"><label for="clientPhone">Client Phone:</label></p>
-                            <input type="text" name="txt_ClinetPhone" value="" size="" class="value"id="clientText"/>
-
-                        </div> 
-                        <div>
-                            
+                            <input type="submit" value="Update Status" name="Update_Status" class="btn" id="saveProfile"/>
+                            <input type="submit" value="Go Back" name="Go_Back" class="btn" id="saveProfile"/>
                         </div>
                         
                     </div>

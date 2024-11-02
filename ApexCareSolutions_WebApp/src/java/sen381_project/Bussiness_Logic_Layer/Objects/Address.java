@@ -11,6 +11,15 @@ public class Address
     public Address()
     {}
     
+    // Address constructor without the ID
+    public Address(String country, String state, String city, String streetName)
+    {
+        this.country = country;
+        this.state = state;
+        this.city = city;
+        this.streetName = streetName;
+    }
+    
     // Constructor that contains the address info
     public Address(Integer addressID, String country, String state, String city, String streetName)
     {
@@ -19,6 +28,14 @@ public class Address
         this.state = state;
         this.city = city;
         this.streetName = streetName;
+    }
+    
+    // The following returns the address information in a string array format without the ID
+    public String[] getAddressNoID()
+    {
+        String[] address = {this.country, this.state, this.city, this.streetName};
+        
+        return address;
     }
     
     // The following returns the address information in a string array format

@@ -75,7 +75,7 @@
         <script>
             function display()
             {
-                window.location.href = './View/register.jsp';
+                window.location.href = './register';
             }
         </script>
         

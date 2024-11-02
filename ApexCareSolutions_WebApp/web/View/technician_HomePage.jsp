@@ -66,7 +66,7 @@
                     <ul id="list-container">
                         <li class="link-container"><a href="#" class="links" id="current-page">Task Page</a></li>
                         <li class="link-container"><a href="./technicianProfile" class="links">Profile</a></li>
-                        <li class="link-container"><a href="./TechnicianContactPage" class="links">Contact Page</a></li>
+                        <li class="link-container"><a href="./Technician_Details_Page" class="links">Contact Page</a></li>
                     </ul>
                 </nav>
             </div>
@@ -90,11 +90,9 @@
                         </div>
                     </li>
                     <%
-                         ArrayList<String[]> services = (ArrayList<String[]>) request.getAttribute("serviceInfo");
+                        ArrayList<String[]> services = (ArrayList<String[]>) request.getAttribute("serviceInfo");
                         
                         Integer i = 1;
-                        
-                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
                         
                         if(services != null)
                         {
