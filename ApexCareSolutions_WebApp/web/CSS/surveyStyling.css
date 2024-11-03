@@ -1,0 +1,68 @@
+
+/* 
+    Created on : 2 Nov 2024, 16:14:54
+    Author     : iyesme
+*/
+label{
+    color: white;
+    font-weight: bolder;
+    font-size: 25px
+}
+
+#block-title{
+    font-size: 3em;
+    margin: 1% 0%;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#main-container{
+    margin-top: 5%;
+    width: 80%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(#042032 0%, #1893E0 100%);
+    padding: 2%;
+    border: solid black 3px;
+    border-radius: 15px;
+    
+    
+}
+
+.Star-container{
+    
+    display: flex;
+    flex-direction: row;
+    gap: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15%;
+    margin-left: 10%;
+    padding: 1%;
+}
+
+.option-block{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+}
+
+#center-block{
+    padding: 10%;
+}
+
+.option-block label{
+    width: 200px;
+    
+}
+
+.checked{
+    color: orange;
+}
+
+.option-block i{
+    cursor: pointer;
+}

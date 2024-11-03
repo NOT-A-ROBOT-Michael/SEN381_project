@@ -1,0 +1,40 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 03 Nov 2024, 23:18:12
+    Author     : iyesme
+*/
+
+#input-field{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#thingTing{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-self: auto;
+    justify-content: space-between;
+    color: white;
+    width: 50%;
+    
+    margin-left: 25%;
+    
+}
+
+.bottomButton{
+    position: relative;
+    margin-left:50%;
+    width: 10%;
+    min-width: fit-content;
+    padding: 10px 5px;
+    min-height: fit-content;
+    transform: translate(-50%, 0);
+    border-radius: 60px;
+    
+}
