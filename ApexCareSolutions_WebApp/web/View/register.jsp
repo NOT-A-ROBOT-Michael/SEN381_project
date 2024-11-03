@@ -77,7 +77,7 @@
 
                 <div id="btn-container">
 
-                    <button onclick="window.location.href='./'" class="return-login-button">Back &#9654</button>
+                    <button onclick="window.location.href='./'" class="return-login-button">&#9664 Back</button>
 
                 </div>
 
