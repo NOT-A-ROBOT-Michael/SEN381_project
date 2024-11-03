@@ -139,14 +139,14 @@ button:hover {
 
 /* Return to Login button */
 .return-login-button{ 
-    font-size: 1.5vw;
+    
     color: black;
     background-color: white;
     border: none;
     font-weight: bold;
     cursor: pointer;
     width: fit-content;
-    
+    font-size: small;
     padding: 1%;
     white-space: nowrap;
     
