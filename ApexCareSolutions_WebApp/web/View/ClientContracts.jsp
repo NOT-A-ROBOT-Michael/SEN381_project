@@ -67,9 +67,9 @@
                 <!--Navigation Bar-->
                 <nav id="nav-container">
                     <ul id="list-container">
-                        <li class="link-container"><a href="./client_HomePage" class="links" id="current-page">Home</a></li>
+                        <li class="link-container"><a href="./client_HomePage" class="links">Home</a></li>
                         <li class="link-container"><a href="./client_LogProblem" class="links">Log Problem</a></li>
-                        <li class="link-container"><a href="./ClientContracts" class="links">View Contracts</a></li>
+                        <li class="link-container"><a href="./ClientContracts" class="links" id="current-page">View Contracts</a></li>
                         <li class="link-container"><a href="./ClientContact" class="links">Contact</a></li>
                         <li class="link-container"><a href="./client_ProfilePage" class="links">Profile</a></li>
                     </ul>
@@ -111,7 +111,7 @@
                                 {
                                     out.println("<li class=\"serviceItem\">"
                                         + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"ClientContractsDetails\" method=\"Post\" class=\"view-form\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Post\" class=\"view-form\">"
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service.GetServiceID().toString() +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service.getServiceTitle() +"\"/>"
@@ -158,7 +158,7 @@
                                 {
                                     out.println("<li class=\"serviceItem\">"
                                         + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"ClientContractsDetails\" method=\"Post\" class=\"view-form\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Post\" class=\"view-form\">"
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service.GetServiceID().toString() +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service.getServiceTitle() +"\"/>"
@@ -205,7 +205,7 @@
                                 {
                                     out.println("<li class=\"serviceItem\">"
                                         + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"ClientContractsDetails\" method=\"Post\" class=\"view-form\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Post\" class=\"view-form\">"
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service.GetServiceID().toString() +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service.getServiceTitle() +"\"/>"
@@ -252,7 +252,7 @@
                                 {
                                     out.println("<li class=\"serviceItem\">"
                                         + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"ClientContractsDetails\" method=\"Post\" class=\"view-form\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Post\" class=\"view-form\">"
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service.GetServiceID().toString() +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service.getServiceTitle() +"\"/>"

@@ -68,8 +68,8 @@
                 <!--Navigation Bar-->
                 <nav id="nav-container">
                     <ul id="list-container">
-                        <li class="link-container"><a href="./client_HomePage"" class="links">Home</a></li>
-                        <li class="link-container"><a href="./client_LogProblem" class="links" id="current-page">Log Problem</a></li>
+                        <li class="link-container"><a href="./client_HomePage"" class="links" id="current-page">Home</a></li>
+                        <li class="link-container"><a href="./client_LogProblem" class="links">Log Problem</a></li>
                         <li class="link-container"><a href="./ClientContracts" class="links">View Contracts</a></li>
                         <li class="link-container"><a href="./ClientContact" class="links">Contact</a></li>
                         <li class="link-container"><a href="./client_ProfilePage" class="links">Profile</a></li>
@@ -107,7 +107,7 @@
                     
                         <div id="left-block">
                             
-                            
+                            <% out.println("<input type=\"hidden\" name=\"serviceID\" value=\""+ serviceDetails.serviceID +"\" size=\"15\" readonly=\"readonly\" />"); %>
 
                             <h4 class="key"><label for="txt_ProblemTitle">Problem Title:</label></h4>
                             <input type="text" name="txt_ProblemTitle" id="txt_ProblemTitle" size="20" value="<% out.println(serviceDetails.serviceTitle); %>" maxlength="20" disabled/>

@@ -72,7 +72,9 @@ public class MR_writeSurvey {
         
         //send survey to database
         //create
-        sqlSur.insertSurvey(survey);
+        Integer surveyID = sqlSur.insertSurvey(survey);
+        
+        sqlSur.updateServiceSurvey(serviceID, surveyID);
         
     }
     

@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     
-                    <input type="submit" value="Save Survey">
+                        <input type="submit" value="Save Survey" style="padding: 10px 20px; font-size: 25px; font-weight: bolder; border-radius: 20px; border-width: 3px;position: relative; left:50%; transform: translate(-50%,0)">
                 </div>
                 </form>
                 

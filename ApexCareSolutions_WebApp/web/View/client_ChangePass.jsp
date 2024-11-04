@@ -58,8 +58,8 @@
                     <ul id="list-container">
                         <li class="link-container"><a href="./client_HomePage"" class="links">Home</a></li>
                         <li class="link-container"><a href="./client_LogProblem" class="links">Log Problem</a></li>
-                        <li class="link-container"><a href="#" class="links">View Contracts</a></li>
-                        <li class="link-container"><a href="#" class="links">Contact</a></li>
+                        <li class="link-container"><a href="./ClientContracts" class="links">View Contracts</a></li>
+                        <li class="link-container"><a href="./ClientContact" class="links">Contact</a></li>
                         <li class="link-container"><a href="./client_ProfilePage" class="links" id="current-page">Profile</a></li>
                     </ul>
                 </nav>

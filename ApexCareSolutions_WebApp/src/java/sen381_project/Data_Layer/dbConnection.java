@@ -16,7 +16,7 @@ public class dbConnection {
     final String conUrl = "jdbc:postgresql://localhost:5432/ApexCareDB";
     final String conDriver = "org.postgresql.Driver";
     final String conUser = "postgres";
-    final String conPassword = "1234";
+    final String conPassword = System.getenv("post-pwd");
     
     public Connection getConnection(){
         Connection conn = null;
