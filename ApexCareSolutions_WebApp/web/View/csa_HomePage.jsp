@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>
         <link rel="stylesheet" href="./CSS/styling.css"/>
-        <link rel="stylesheet" href="./CSS/clientHomePage.css"/>
+        <link rel="stylesheet" href="./CSS/csaHomePage.css"/>
     </head>
     <body>
         <header>
@@ -77,20 +77,21 @@
             <div id="main-container">
                 <ul class="info-container">
                     <li class="serviceItem"><h1 class="titleOfBlock" id="ready-title">Ready</h1></li>
-                    <li class="serviceItem" id="itemTitle-list">
-                        <div id="title-list" class="list-container">
+                    <li class="item-Titles">
+                        <div class="list-container-title">
                             
                             <p class="info-text">Service ID</p>
                             <p class="info-text">Service Title</p>
                             <p class="info-text">Technician Name</p>
                             <p class="info-text">Service Status</p>
-                            <p class="info-text"></p>
+                            <p class="fake-btn"></p>
                             
                         </div>
                         
                         
                     </li>
                     <%
+                    
                         ArrayList<String[]> services = (ArrayList<String[]>) request.getAttribute("serviceInfo");
                         
                         Integer i = 1;
@@ -101,21 +102,19 @@
                             {
                                 if(service[4].equals("Closed by Technician"))
                                 {
-                                    out.println("<li class=\"serviceItem\"><form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Get\"><div class=\"list-container\">" + 
-                                    "<p class=\"info-text\">" + service[0] + "</p>" +
-                                    "<p class=\"info-text\">" + service[1] + "</p>" +
-                                    "<p class=\"info-text\">" + service[2] + " " + service[3] + "</p>" +
-                                    "<p class=\"info-text\">" + service[4] + "</p>" +
-
-                                    "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" />" +
-                                    "<div></form>" +
-                                    "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"Get\"><div class=\"list-container\">" +
-                                    
-                                    "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />" +
-                                    "<input type=\"submit\" value=\"Complete Survey\" name=\"btn-ViewDetails\" />" +
-                                    
-                                    "<div></form>" +
-                                    "</li>");
+                                    out.println("<li class=\"serviceItem\">"
+                                        + "<div class=\"outside-block\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetailsCSA\" method=\"POST\">"
+                                                + "<div class=\"list-container\">" 
+                                                    + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\""+ service[2] + " " + service[3] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service[4] +"\"/>"
+                                                    + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
+                                                + "</div>"
+                                            + "</form>"
+                                        + "</div>"
+                                    + "</li>");
                                 }
                             }
                         }
@@ -123,39 +122,38 @@
                 </ul>
                 <ul class="info-container">
                     <li class="serviceItem"><h1 class="titleOfBlock" id="ongoing-title">Ongoing</h1></li>
-                    <li class="serviceItem" id="itemTitle-list">
-                        <div id="title-list" class="list-container">
+                    <li class="item-Titles">
+                        <div  class="list-container-title">
                             
                             <p class="info-text">Service ID</p>
                             <p class="info-text">Service Title</p>
                             <p class="info-text">Technician Name</p>
                             <p class="info-text">Service Status</p>
-                            <p class="info-text"></p>
+                            <p class="fake-btn"></p>
                             
                         </div>
                     </li>
                     <%
+                        
                         if(services != null)
                         {
                             for(var service : services)
                             {
                                 if(service[4].equals("Ongoing"))
                                 {
-                                    out.println("<li class=\"serviceItem\"><form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Get\"><div class=\"list-container\">" + 
-                                    "<p class=\"info-text\">" + service[0] + "</p>" +
-                                    "<p class=\"info-text\">" + service[1] + "</p>" +
-                                    "<p class=\"info-text\">" + service[2] + " " + service[3] + "</p>" +
-                                    "<p class=\"info-text\">" + service[4] + "</p>" +
-
-                                    "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" />" +
-                                    "<div></form>" +
-                                    "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"Get\"><div class=\"list-container\">" +
-                                    
-                                    "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />" +
-                                    "<input type=\"submit\" value=\"Complete Survey\" name=\"btn-ViewDetails\" />" +
-                                    
-                                    "<div></form>" +
-                                    "</li>");
+                                    out.println("<li class=\"serviceItem\">"
+                                        + "<div class=\"outside-block\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetailsCSA\" method=\"POST\">"
+                                                + "<div class=\"list-container\">" 
+                                                    + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\""+ service[2] + " " + service[3] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service[4] +"\"/>"
+                                                    + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
+                                                + "</div>"
+                                            + "</form>"
+                                        + "</div>"
+                                    + "</li>");
                                 }
                             }
                         }
@@ -163,39 +161,105 @@
                 </ul>
                 <ul class="info-container">
                     <li class="serviceItem"><h1 class="titleOfBlock" id="pending-title">Pending</h1></li>
-                    <li class="serviceItem" id="itemTitle-list">
-                        <div id="title-list" class="list-container">
+                    <li class="item-Titles">
+                        <div class="list-container-title-pending">
                             
                             <p class="info-text">Service ID</p>
-                            <p class="info-text">Service Title</p>
+                            <p class="info-text-service">Service Title</p>
                             <p class="info-text">Technician Name</p>
                             <p class="info-text">Service Status</p>
-                            <p class="info-text"></p>
+                            <p class="fake-btn"></p>
                             
                         </div>
                     </li>
                     <%
+                        
                         if(services != null)
                         {
                             for(var service : services)
                             {
                                 if(service[4].equals("Pending"))
                                 {
-                                    out.println("<li class=\"serviceItem\"><form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Get\"><div class=\"list-container\">" + 
-                                    "<p class=\"info-text\">" + service[0] + "</p>" +
-                                    "<p class=\"info-text\">" + service[1] + "</p>" +
-                                    "<p class=\"info-text\">" + service[2] + " " + service[3] + "</p>" +
-                                    "<p class=\"info-text\">" + service[4] + "</p>" +
-
-                                    "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" />" +
-                                    "<div></form>" +
-                                    "<form name=\"viewSurvey-" + (i++) + "\" action=\"viewSurvey\" method=\"Get\"><div class=\"list-container\">" +
-                                    
-                                    "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />" +
-                                    "<input type=\"submit\" value=\"Complete Survey\" name=\"btn-ViewDetails\" />" +
-                                    
-                                    "<div></form>" +
-                                    "</li>");
+                                    out.println("<li class=\"serviceItem\">"
+                                        + "<div class=\"outside-block-pending\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetailsCSA\" method=\"POST\" class=\"view-form\">"
+                                                + "<div class=\"list-container-pending\">" 
+                                                    + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
+                                                    + "<input class=\"info-text-service\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\"Unassigned\"/>"
+                                                    + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service[4] +"\"/>"
+                                                    + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
+                                                + "</div>"
+                                            + "</form>"
+                                            + "<div class=\"survey-block\">"
+                                                + "<form name=\"assignTech\" action=\"addTechToService\" method=\"POST\">"
+                                                    + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />"
+                                                    + "<input type=\"hidden\" name=\"hidden-SendMessage\" value=\"0\" size=\"15\" readonly=\"readonly\" />"
+                                                    + "<input type=\"submit\" value=\"Add Service\" name=\"btn-AddService\" class=\"btn-Add\"/>"
+                                                + "</form>"
+                                            + "</div>"
+                                            + "<div class=\"survey-block\">"
+                                                + "<form name=\"declineService\" action=\"declineRequestedService\" method=\"POST\">"
+                                                    + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />"
+                                                    + "<input type=\"submit\" value=\"Decline Service\" name=\"btn-DeclineService\" class=\"btn-Decline\"/>"
+                                                + "</form>"
+                                            + "</div>"
+                                        + "</div>"
+                                    + "</li>");
+                                }
+                            }
+                        }
+                    %>
+                </ul>
+                
+                
+                <ul class="info-container">
+                    <li class="serviceItem"><h1 class="titleOfBlock" id="declined-title">Declined</h1></li>
+                    <li class="item-Titles">
+                        <div class="list-container-title-pending">
+                            
+                            <p class="info-text">Service ID</p>
+                            <p class="info-text-service">Service Title</p>
+                            <p class="info-text">Technician Name</p>
+                            <p class="info-text">Service Status</p>
+                            <p class="fake-btn"></p>
+                            
+                        </div>
+                    </li>
+                    <%
+                        
+                        if(services != null)
+                        {
+                            for(var service : services)
+                            {
+                                if(service[4].equals("Declined"))
+                                {
+                                    out.println("<li class=\"serviceItem\">"
+                                        + "<div class=\"outside-block-pending\">"
+                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetailsCSA\" method=\"POST\" class=\"view-form\">"
+                                                + "<div class=\"list-container-pending\">" 
+                                                    + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
+                                                    + "<input class=\"info-text-service\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\"Unassigned\"/>"
+                                                    + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service[4] +"\"/>"
+                                                    + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
+                                                + "</div>"
+                                            + "</form>"
+                                            + "<div class=\"survey-block\">"
+                                                + "<form name=\"assignTech\" action=\"addTechToService\" method=\"POST\">"
+                                                    + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />"
+                                                    + "<input type=\"hidden\" name=\"hidden-SendMessage\" value=\"0\" size=\"15\" readonly=\"readonly\" />"
+                                                    + "<input type=\"submit\" value=\"Add Service\" name=\"btn-AddService\" class=\"btn-Add\"/>"
+                                                + "</form>"
+                                            + "</div>"
+                                            + "<div class=\"survey-block\">"
+                                                + "<form name=\"declineService\" action=\"declineRequestedService\" method=\"POST\">"
+                                                    + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service[0] +"\" size=\"15\" readonly=\"readonly\" />"
+                                                    + "<input type=\"submit\" value=\"Decline Service\" name=\"btn-DeclineService\" class=\"btn-Decline\"/>"
+                                                + "</form>"
+                                            + "</div>"
+                                        + "</div>"
+                                    + "</li>");
                                 }
                             }
                         }

@@ -12,6 +12,8 @@ import sen381_project.Bussiness_Logic_Layer.Objects.AR_ClientDetails;
 import sen381_project.Bussiness_Logic_Layer.Objects.AR_Notes;
 import sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianDetails;
 import sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianTask;
+import sen381_project.Bussiness_Logic_Layer.Objects.CSA_Service;
+import sen381_project.Bussiness_Logic_Layer.Objects.Service;
 
 public class ConnectionProvider {
     String TechEmail;
@@ -584,10 +586,33 @@ public class ConnectionProvider {
         }
     }
     
+    // Sets a service's status to ongoing
+    public void updateServiceToDeclined(Integer serviceID) throws ClassNotFoundException
+    {
+        // The query updates a specified service's status to ongoing
+        String query = "UPDATE \"Services\"SET \"Status\"=? WHERE \"ServiceID\"=?;";
+        
+        
+        
+        try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+            psmt.setString(1, "Declined");
+            psmt.setInt(2, serviceID);
+            
+            psmt.execute();
+            
+            System.out.println("!Info!----- Successfully updated service state to declined. -----!Info!");
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> updateServiceToDeclined) Error, while trying to set the service state to declined: " + e.getMessage() + " -----!E!");
+        }
+    }
+    
     // -------------------- Important Note ------------------------------
     // The following is not the correct way of setting the technician to a service
     // The following adds a technician to a indicated service
-    public void addTechnicianToService(Integer serviceID, LocalDate requestedDate) throws ClassNotFoundException
+    public void addTechnicianToService(Integer serviceID, Integer technicianID, LocalDate requestedDate) throws ClassNotFoundException
     {
         // The query sets a technician to a service
         String query = "INSERT INTO \"Service Technician\" (\"ServiceID\", \"TechnicianID\", \"Requested_Date\") VALUES (?, ?, ?);";
@@ -600,7 +625,7 @@ public class ConnectionProvider {
             Date sql_RequestedDate = Date.valueOf(requestedDate);
             
             psmt.setInt(1, serviceID);
-            psmt.setInt(2, 1);
+            psmt.setInt(2, technicianID);
             psmt.setDate(3, sql_RequestedDate);
             
             psmt.execute();
@@ -976,8 +1001,8 @@ public class ConnectionProvider {
           
          return null; 
        }
-      public AR_Notes getNotes (Integer NoteID) throws ClassNotFoundException
-      {
+    public AR_Notes getNotes (Integer NoteID) throws ClassNotFoundException
+    {
       String sql1 = "SELECT  \"Note_text\" FROM \"Note\" WHERE \"NoteID\" ="+ "'"+NoteID+"'";  
          try (Connection conn = getCon();
              PreparedStatement pstmt = conn.prepareStatement(sql1);
@@ -996,6 +1021,203 @@ public class ConnectionProvider {
                 return null;
            }
         
-      }
+      
     }
+    
+    // The following returns a ArrayList of service objects that contains the information required on the client's environment
+    public ArrayList<CSA_Service> getCSAService(Integer csaID) throws ClassNotFoundException
+    {
+        // A view was created to get the specific data that will be displayed to the client
+        String query = "SELECT * FROM \"clientServiceView\" WHERE \"CallServiceAgentID\" = ?";
+        // In the event of a client having multiple services, we store them in an ArrayList
+        ArrayList<CSA_Service> services = new ArrayList<>();
+
+        // The following try-with-resources will close the connection to the database on completion or in the event of an error.
+        try (Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+            // Entered Client ID
+            psmt.setInt(1, csaID);
+
+            // Cotains the items that have been returned by the query
+            ResultSet rs = psmt.executeQuery();
+
+            // The following will add all the services that were found to the created ArrayList
+            while(rs.next())
+            {
+                // Service
+                Integer serviceID = rs.getInt("ServiceID"); // 0
+                Integer clientID = rs.getInt("ClientID"); // 1
+                String serviceTitle = rs.getString("Service_Title"); // 2
+                String skillCategory = rs.getString("Category"); // 3
+                String description = rs.getString("Description"); // 4
+                String priority = rs.getString("Priority"); // 5
+                String status = rs.getString("Status"); // 6
+
+                // Address
+                String country = rs.getString("Country"); // 7
+                String state = rs.getString("State"); // 8
+                String city = rs.getString("City"); // 9
+                String streetName = rs.getString("Street_Name"); // 10
+
+                // Technician
+                String firstName = rs.getString("First_Name"); // 11
+                String lastName = rs.getString("Last_Name"); // 12
+
+                System.out.println("!Info!----- Service ID: " + serviceID + " -----!Info!");
+
+                CSA_Service serviceInfo = new CSA_Service(serviceID, clientID, serviceTitle, skillCategory, description, priority, status, country, state, city, streetName, firstName, lastName);
+
+                services.add(serviceInfo);
+            }
+
+            return services;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> getCSAService) Error, while trying to get service info: " + e.getMessage() + "-----!E!");
+        }
+
+        return null;
+    }
+        
+    public ArrayList<Integer> getSpecialTech(Integer specialisationID) throws ClassNotFoundException
+    {
+        String query = "SELECT \"TechnicianID\" FROM \"specialisationOfTechnicianView\" WHERE \"SpecialisationID\" = ?";
+        ArrayList<Integer> techID_List = new ArrayList<>();
+
+        try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+            psmt.setInt(1, specialisationID);
+
+            ResultSet rs = psmt.executeQuery();
+
+            while(rs.next())
+            {
+                System.out.println("!Info!----- Got a technician -----!Info!");
+                techID_List.add(rs.getInt("TechnicianID"));
+            }
+
+            return techID_List;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> getSpecialTech)Error, while trying to get technicians that belong to a specialisation: " + e.getMessage() + "-----!E!");
+        }
+
+        return null;
+    }
+        
+    public Integer getSpecial(Integer contractID) throws ClassNotFoundException
+    {
+        String query = "SELECT \"SpecialisationID\" FROM \"Contract\" WHERE \"ContractID\" = ?";
+
+
+        try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+            psmt.setInt(1, contractID);
+
+            ResultSet rs = psmt.executeQuery();
+
+            while(rs.next())
+            {
+                System.out.println("!Info!----- Got a contract -----!Info!");
+                return rs.getInt("SpecialisationID");
+            }
+
+
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> getSpecial)Error, while trying to get specialisation from contract table: " + e.getMessage() + "-----!E!");
+        }
+
+        return null;
+    }
+        
+    public Service getServiceForAddingATech(Integer serviceID) throws ClassNotFoundException
+    {
+        String query = "SELECT * FROM \"Services\" WHERE \"ServiceID\" = ?";
+
+
+        try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+            psmt.setInt(1, serviceID);
+
+            ResultSet rs = psmt.executeQuery();
+
+            while(rs.next())
+            {
+                System.out.println("!Info!----- Got a technician -----!Info!");
+                return new Service(rs.getInt("ServiceID"), rs.getInt("ContractID"));
+            }
+
+            return null;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> getSpecialTech)Error, while trying to get technicians that belong to a specialisation: " + e.getMessage() + "-----!E!");
+        }
+
+        return null;
+    }
+        
+    public ArrayList<Integer[]> numOfServicesForTech(ArrayList<Integer> technicianID_List) throws ClassNotFoundException
+    {
+        String query = "SELECT COUNT(*) FROM \"Service Technician\" WHERE \"TechnicianID\" = ?";
+        ArrayList<Integer[]> techAndNumOfServices = new ArrayList<>();
+
+        try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+
+            for(var tech : technicianID_List)
+            {
+                psmt.setInt(1, tech);
+
+                ResultSet rs = psmt.executeQuery();
+
+                while(rs.next())
+                {
+                    System.out.println("!Info!----- Got a technician -----!Info!");
+                    techAndNumOfServices.add(new Integer[] {tech, rs.getInt(1)});
+                }
+            }
+
+            return techAndNumOfServices;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> numOfServicesForTech)Error, while trying to get number of services that belong to a specific technician: " + e.getMessage() + "-----!E!");
+        }
+
+        return null;
+    }
+        
+    public CSA_Service getServiceForCSA_Details(Integer serviceID) throws ClassNotFoundException
+    {
+        String query = "SELECT * FROM \"csaServiceDetailsView\" WHERE \"ServiceID\" = ?";
+
+
+        try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+            psmt.setInt(1, serviceID);
+
+            ResultSet rs = psmt.executeQuery();
+
+            while(rs.next())
+            {
+                System.out.println("!Info!----- Got a technician -----!Info!");
+                return new CSA_Service(rs.getInt("ServiceID"), rs.getInt("ClientID"), rs.getString("client_first_name"), rs.getString("client_Last_Name"), rs.getString("Phone_Number"), rs.getString("Email"), rs.getString("Service_Title"), rs.getString("Category"), rs.getString("Description"), rs.getString("Priority"), rs.getString("Status"), rs.getString("Country"), rs.getString("State"), rs.getString("City"), rs.getString("Street_Name"), rs.getString("tech_first_name"), rs.getString("tech_last_name"));
+            }
+
+            return null;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> getSpecialTech)Error, while trying to get technicians that belong to a specialisation: " + e.getMessage() + "-----!E!");
+        }
+
+        return null;
+    }
+    
+}
 

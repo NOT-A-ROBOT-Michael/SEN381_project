@@ -1,8 +1,8 @@
 // The following servlet is used to send SMSs to technicians when they are assigned to a new service
 package Presentation;
-/*
+
 // Servlet
-import DataAccess.ConnectionProvider;
+import sen381_project.Data_Layer.ConnectionProvider;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,28 +18,39 @@ import com.twilio.type.PhoneNumber;
 import java.net.URI;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import sen381_project.Bussiness_Logic_Layer.CSA_ViewDetails_Logic;
 
 @WebServlet("/sendMessage")
 public class SendMessageServlet extends HttpServlet
 {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        CSA_ViewDetails_Logic csa_DetailsLogic = new CSA_ViewDetails_Logic();
+        
         String ACCOUNT_SID = System.getenv("twil_ID");
         String AUTH_TOKEN = System.getenv("twil_Token");
         String phone = System.getenv("twil_Phone");
-        String sms_Text = "Greetings Technician,\n\n You have been assigned to a new service.\n\nPlease check your portal to find out more about the service.";
         String toNumber = "+27729489256";
-        Integer serviceID = Integer.parseInt(request.getParameter("serviceID"));
+        Integer serviceID = (Integer) request.getAttribute("serviceID");
         LocalDate currentDate = LocalDate.now();
         
         try
         {
             
-            ConnectionProvider cp = new ConnectionProvider();
+            String[] serviceDetails = csa_DetailsLogic.getCSA_ServiceDetails(serviceID);
             
-            cp.addTechnicianToService(serviceID, currentDate);
-            cp.updateServiceToOngoing(serviceID);
+            
+            String sms_Text;
+            
+            if(serviceDetails[15] != null && serviceDetails[16] != null)
+            {
+                sms_Text = "Greetings "+ serviceDetails[15] + "  " + serviceDetails[16]+"\n\nYou have been assigned to a new service." +"\n\nService ID: " + serviceDetails[0] + "\nClient Name: " + serviceDetails[2] + " " + serviceDetails[3] + "\nClient Phone Number: " + serviceDetails[4] + "\nClient Email: " + serviceDetails[5] + "\n\nAddress:\nCountry: " + serviceDetails[11] + "\nState: " + serviceDetails[12] + "\nCity: " + serviceDetails[13] + "\nStreet Name: " + serviceDetails[14] +"\n\n\nPlease check your portal to find out more about the service.";
+            }
+            else
+            {
+                sms_Text = "Greetings Technician,\n\n You have been assigned to a new service.\n\nPlease check your portal to find out more about the service.";
+            }
             
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         
@@ -50,17 +61,17 @@ public class SendMessageServlet extends HttpServlet
             .create();
 
             System.out.println(message.getSid());
-
+            
             System.out.println("SMS sent successfully.");
+            System.out.println(sms_Text);
         }
         catch (Exception e)
         {
             System.out.println("Failed to send SMS: " + e.getMessage());
         }
         
-        response.sendRedirect("./client_HomePage");
+        response.sendRedirect("./technician_HomePage");
     }
 }
-*/
-public class SendMessageServlet 
-{}
+
+

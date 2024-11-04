@@ -70,8 +70,11 @@ public class UserServlet extends HttpServlet
                     }
                     case "CSA":
                     {
+                        // The following gets the basic service information to be displayed in the client home page.
+                        ArrayList<String[]> csaServices = sl.serviceDetails_CSA(userIDNum);
+                        
                         // Call Service Agent
-                        request.setAttribute("serviceInfo", newServices);
+                        request.setAttribute("serviceInfo", csaServices);
                         request.getRequestDispatcher("./View/csa_HomePage.jsp").forward(request, response);
                         break;
                     }
