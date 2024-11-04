@@ -4,15 +4,15 @@
     Author     : morne
 --%>
 
+<%@page import="businesslogiclayer.logic.TechnicianService"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.TechnicianService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration</title>
-        <link rel="stylesheet" href="./CSS/registerStyle.css"/>
+        <link rel="stylesheet" href="./CSS/RegisterStyle.css"/>
         <script>
             function showFields()
             {

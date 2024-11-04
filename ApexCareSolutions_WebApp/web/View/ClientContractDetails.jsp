@@ -4,17 +4,17 @@
     Author     : iyesme
 --%>
 
+<%@page import="businesslogiclayer.object.MR_ClientAddress"%>
+<%@page import="businesslogiclayer.object.MR_ClientService"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.MR_ClientService"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.MR_ClientAddress"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Contract Details</title>
-        <link rel="stylesheet" href="./CSS/styling.css"/>
-        <link rel="stylesheet" href="./CSS/clientLogProblem.css"/>
+        <link rel="stylesheet" href="./CSS/Styling.css"/>
+        <link rel="stylesheet" href="./CSS/ClientLogProblem.css"/>
     </head>
     <body>
         <header>

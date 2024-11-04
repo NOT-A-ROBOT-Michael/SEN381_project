@@ -1,18 +1,16 @@
-<%@page import="sen381_project.Bussiness_Logic_Layer.AR_NotesThing"%>
+<%@page import="businesslogiclayer.logic.AR_NotesThing"%>
+<%@page import="businesslogiclayer.object.AR_TechnicianDetails"%>
+<%@page import="businesslogiclayer.object.AR_ClientDetails"%>
 <%@page import="java.util.Scanner"%>
-<%@page import="sen381_project.Data_Layer.ConnectionProvider"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.AR_ClientDetails"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.Client_Details"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianDetails"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Details Page</title>
-        <link rel="stylesheet" href="./CSS/styling.css"/>
-        <link rel="stylesheet" href="./CSS/Tech_Details.css"/>
+        <link rel="stylesheet" href="./CSS/Styling.css"/>
+        <link rel="stylesheet" href="./CSS/TechDetails.css"/>
     </head>
     <body>
         <header>

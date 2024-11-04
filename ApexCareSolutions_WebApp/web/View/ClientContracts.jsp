@@ -3,7 +3,7 @@
     Created on : 29 Oct 2024, 09:43:45
     Author     : iyesme
 --%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.MR_ClientServiceListItem" %>
+<%@page import="businesslogiclayer.object.MR_ClientServiceListItem"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,9 +12,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Contracts Page</title>
-        <link rel="stylesheet" href="./CSS/styling.css"/>
-        <link rel="stylesheet" href="./CSS/clientHomePage.css"/>
-        <link rel="stylesheet" href="./CSS/ClientContracs.css"/>
+        <link rel="stylesheet" href="./CSS/Styling.css"/>
+        <link rel="stylesheet" href="./CSS/ClientHomePage.css"/>
+        <link rel="stylesheet" href="./CSS/ClientContracts.css"/>
         
     </head>
     <body>

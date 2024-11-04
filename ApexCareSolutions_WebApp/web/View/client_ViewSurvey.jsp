@@ -1,12 +1,12 @@
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.MR_Survey"%>
+<%@page import="businesslogiclayer.object.MR_Survey"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Survey Page</title>
-        <link rel="stylesheet" href="./CSS/styling.css"/>
-        <link rel="stylesheet" href="./CSS/surveyStyling.css"/>
+        <link rel="stylesheet" href="./CSS/Styling.css"/>
+        <link rel="stylesheet" href="./CSS/SurveyStyling.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <script type="text/javascript" src="./JavaScript/StarScript.js" defer></script>
     </head>

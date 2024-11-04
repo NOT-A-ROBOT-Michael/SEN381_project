@@ -7,8 +7,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>
-        <link rel="stylesheet" href="./CSS/styling.css"/>
-        <link rel="stylesheet" href="./CSS/csaHomePage.css"/>
+        <link rel="stylesheet" href="./CSS/Styling.css"/>
+        <link rel="stylesheet" href="./CSS/HomePageOfCSA.css"/>
     </head>
     <body>
         <header>

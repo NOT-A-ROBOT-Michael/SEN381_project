@@ -4,23 +4,18 @@
     Author     : arlow
 --%>
 
-<%@page import="sen381_project.Bussiness_Logic_Layer.AR_ProfileThing"%>
-<%@page import="Presentation.LoginServlet"%>
+<%@page import="businesslogiclayer.object.AR_TechnicianDetails"%>
+<%@page import="businesslogiclayer.logic.AR_ProfileThing"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.AR_NotesThing"%>
 <%@page import="java.util.Scanner"%>
-<%@page import="sen381_project.Data_Layer.ConnectionProvider"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.AR_ClientDetails"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.Client_Details"%>
-<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianDetails"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Profile Page</title>
-        <link rel="stylesheet" href="./CSS/styling.css"/>
-        <link rel="stylesheet" href="./CSS/tech_Profile_Styling.css"/>
+        <link rel="stylesheet" href="./CSS/Styling.css"/>
+        <link rel="stylesheet" href="./CSS/TechProfileStyling.css"/>
     </head>
     <body>
         <header>

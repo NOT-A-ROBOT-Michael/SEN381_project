@@ -10,9 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Contact Page</title>
-        <link rel="stylesheet" href="./CSS/styling.css"/>
+        <link rel="stylesheet" href="./CSS/Styling.css"/>
         <link rel="stylesheet" href="./CSS/TechContactStyling.css"/>
-        <link rel="stylesheet" href="./CSS/clientContactStyling.css">
+        <link rel="stylesheet" href="./CSS/ClientContactStyling.css">
     </head>
     <body>
         <header>
