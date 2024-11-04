@@ -1,0 +1,180 @@
+/* 
+    Created on : 30 Oct 2024, 10:55:31
+    Author     : arlow
+*/
+#main-container{
+    
+    margin-top: 5%;
+    width: 80%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(#042032 0%, #1893E0 100%);
+    padding: 2%;
+    border: solid black 3px;
+    border-radius: 15px;
+}
+
+.serviceItem{
+    list-style: none;
+    margin: 0% 0% 1% 0%;
+    
+}
+
+.item-Titles{
+    list-style: none;
+    margin: 0%;
+}
+
+.list-container-title {
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    padding: 0% 1%;
+    border: solid transparent 3px;
+    font-weight: bold;
+    color: white;
+    font-size: x-large;
+    justify-content: space-around;
+}
+
+.list-container{
+    grid-area: info;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto auto auto auto;
+    text-align: center;
+    justify-items: center;
+    
+}
+
+.view-form{
+    width: 81%;
+}
+
+.info-text{
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    border: none;
+}
+
+#title-list{
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border: none;
+    
+}
+
+
+
+.titleOfBlock{
+    
+    text-align: center;
+    margin: 0px;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+
+
+#ongoing-title{
+    background-color: black;
+    color: white;
+}
+
+#pending-title{
+    background-color: lightgray;
+}
+
+.info-container{
+    padding: 0px;
+}
+
+.outside-block{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 1%;
+    border: solid black 3px;
+    border-radius: 15px;
+}
+
+.btn{
+    width: 80px;
+    white-space: wrap;
+}
+
+.survey-block{
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    width: fit-content;
+}
+#txtID{
+    height: 25%;
+    width: 90%;
+    border-radius: 10px;
+    min-width: 50px;
+}
+#txtQuery{
+    height: 50%;
+    width: 90%;
+    border-radius: 10px;
+    min-width: 50px;
+}
+#bottomButton{
+    background-color: lightgray;
+    border-style: hidden;
+    padding: 2% 5%;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 2vh;
+    width: fit-content;
+    
+}
+#emailtext{
+    display: flex;
+    gap: 5%;
+}
+#numbertext{
+    display: flex;
+    gap: 5%;
+}
+#inputID{
+   display: grid;
+   grid-template-columns: auto 5vw;
+   align-items: center;
+   column-gap: 5%; 
+   
+}
+#inputQuery{
+   display: grid;
+    grid-template-columns: auto 20vw;
+    align-items: center;
+    column-gap: 5%; 
+}
+
+.key{
+    white-space: nowrap;
+}
+
+#btn-container{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+#dropdownID{
+    display: grid;
+   grid-template-columns: auto min-content;
+   align-items: center;
+   column-gap: 5%; 
+   
+}
+#TaskDropdown{
+    border-radius: 7px;
+}

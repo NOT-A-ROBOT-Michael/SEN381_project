@@ -1,0 +1,37 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package sen381_project.Bussiness_Logic_Layer;
+
+import sen381_project.Data_Layer.ConnectionProvider;
+import sen381_project.Bussiness_Logic_Layer.Objects.Status;
+/**
+ *
+ * @author arlow
+ */
+public class StatusThing {
+    ConnectionProvider cpt = new ConnectionProvider();
+    Status status = new Status();
+    public Status CreateStatusObject(Integer serviceID, String StatusUpdate)
+    {
+    
+    status.setServiceID(serviceID).setStatusUpdate(StatusUpdate);
+    
+    
+    return status;
+    }
+    public void updateStatus(Integer ServiceID, String StatusUpdate)
+    {
+        try
+        {
+            CreateStatusObject(ServiceID,StatusUpdate);
+            cpt.UpdateStatus(status.getStatusUpdate(),status.getServiceID());
+        }
+        catch (Exception e)
+        {
+            System.out.println("Something went wrong while trying to update the techniciam's status: " + e.getMessage());
+        }
+        
+    }
+}
