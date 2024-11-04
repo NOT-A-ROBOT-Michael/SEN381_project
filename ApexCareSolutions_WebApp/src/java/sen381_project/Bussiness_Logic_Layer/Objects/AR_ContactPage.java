@@ -8,13 +8,13 @@ package sen381_project.Bussiness_Logic_Layer.Objects;
  *
  * @author arlow
  */
-public class ContactPage {
+public class AR_ContactPage {
     private Integer serviceID;
     private String Query;
     
-    public ContactPage(){}
+    public AR_ContactPage(){}
     
-    public ContactPage (Integer serviceID, String Query)
+    public AR_ContactPage (Integer serviceID, String Query)
     {
         this.serviceID = serviceID;
         this.Query = Query;
@@ -27,12 +27,12 @@ public class ContactPage {
         return this.serviceID;
     }
     
-    public ContactPage setQueryText(String Query){
+    public AR_ContactPage setQueryText(String Query){
         this.Query = Query;
         return this;
     }
     
-    public ContactPage setServiceID(Integer serviceID){
+    public AR_ContactPage setServiceID(Integer serviceID){
         this.serviceID = serviceID;
         return this;
     }

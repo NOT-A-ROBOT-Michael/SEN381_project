@@ -4,8 +4,16 @@
     Author     : arlow
 --%>
 
+<%@page import="sen381_project.Bussiness_Logic_Layer.AR_ProfileThing"%>
+<%@page import="Presentation.LoginServlet"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="sen381_project.Bussiness_Logic_Layer.AR_NotesThing"%>
+<%@page import="java.util.Scanner"%>
+<%@page import="sen381_project.Data_Layer.ConnectionProvider"%>
+<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.AR_ClientDetails"%>
+<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.Client_Details"%>
+<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianDetails"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,6 +31,8 @@
                 String userType = (String) session.getAttribute("userType");
                 String[] userDetails = (String[]) session.getAttribute("userDetails");
                 String fullName = "";
+                AR_ProfileThing PT = new AR_ProfileThing(); 
+                 AR_TechnicianDetails tDetails = (AR_TechnicianDetails)session.getAttribute("tDetails");
                 if(userDetails != null)
                 {
                     if(userType.equals("T"))
@@ -33,13 +43,13 @@
                     else
                     {
                         // If they do not exist they will receive an error.
-                        response.sendRedirect("../?Error=Incorrect user type");
+                        response.sendRedirect("./?Error=Incorrect user type");
                     }
                 }
                 else
                 {
                     // If they do not exist they will receive an error.
-                    response.sendRedirect("../?Error=Please log in first");
+                    response.sendRedirect("./?Error=Please log in first");
                 }
             %>
             
@@ -62,9 +72,9 @@
                 <!--Navigation Bar-->
                 <nav id="nav-container">
                     <ul id="list-container">
-                        <li class="link-container"><a href="./client_HomePage"" class="links">Task Page</a></li>
-                         <li class="link-container"><a href="./client_ProfilePage" class="links" id="current-page">Profile</a></li>
-                        <li class="link-container"><a href="#" class="links">Contact Page</a></li>
+                        <li class="link-container"><a href="./technician_HomePage" class="links">Task Page</a></li>
+                         <li class="link-container"><a href="./technicianProfile" class="links" id="current-page">Profile</a></li>
+                        <li class="link-container"><a href="./TechnicianContactPage" class="links">Contact Page</a></li>
                        
                     </ul>
                 </nav>
@@ -88,31 +98,29 @@
                 </div>
                     
                 
-                <form name="changeProfile" action="client_ChangeProfile" method="POST" id="changeProfile">
+                <form name="ProfileUpdate" action="updateProfile" method="POST" id="changeProfile">
                     <div id="main-container">
                         
                         <div id="profile-container">
                             
-                            <p class="key">Client ID:</p>
-                            <input type="text" name="txt_clientID" value="" size="15" readonly="readonly" class="value"/>
+                            <p class="key">Technician ID:</p>
+                            <input type="text" name="txt_TechID" value="<%= tDetails.getTechID() %>" size="15" readonly="readonly" class="value"/>
                             <p class="key">First Name:</p>
-                            <input type="text" name="txt_firstName" value="" size="15" class="value"/>
+                            <input type="text" name="txt_firstName" value="<%= tDetails.getName()%>" size="30" class="value" readonly="readonly"/>
                             <p class="key">Last Name:</p>
-                            <input type="text" name="txt_lastName" value="" size="15" class="value"/>
+                            <input type="text" name="txt_lastName" value="<%= tDetails.getSurname() %>" size="30" class="value" readonly="readonly"/>
                             <p class="key">Phone Number:</p>
-                            <input type="text" name="txt_phoneNumber" value="" size="15" class="value"/>
+                            <input type="text" name="txt_phoneNumber" value="<%= tDetails.getNumber() %>" size="13" class="value" />
                             <p class="key">Email:</p>
-                            <input type="text" name="txt_email" value="" size="15" class="value"/>
-                           
-                             <h1 class="head">Change Password:</h1>
-                        <form name="changePass" action="client_ChangePass" method="GET">
-                            <input type="submit" value="Change" name="btn_Pass" class="btn"/>
-                        </form>
+                            <input type="text" name="txt_email" value="<%= tDetails.getEmail() %>" size="50" class="value"readonly="readonly"/>
+                            <p class="key">Change Password:</p>
+                            <input type="text" name="txt_password" value="" size="13" class="value" />
+                        
                         </div>
                         
                         <div id="submit-container">
 
-                            <input type="submit" value="Save Info" name="saveProfile" class="btn" id="saveProfile"/>
+                            <input type="submit" value="Save Info" name="saveProfile" class="btn" id="saveProfile" />
 
                         </div>
                         

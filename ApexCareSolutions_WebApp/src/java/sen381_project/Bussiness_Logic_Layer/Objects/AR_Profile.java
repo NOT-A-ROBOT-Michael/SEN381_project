@@ -8,7 +8,7 @@ package sen381_project.Bussiness_Logic_Layer.Objects;
  *
  * @author arlow
  */
-public class Profile {
+public class AR_Profile {
     private Integer serviceID;
     private String Name;
     private String Surname;
@@ -38,27 +38,27 @@ public class Profile {
         return this.Password;
     }
     
-    public Profile setServiceID(Integer serviceID){
+    public AR_Profile setServiceID(Integer serviceID){
         this.serviceID = serviceID;
         return this;
     }
-    public Profile setName(String Name){
+    public AR_Profile setName(String Name){
         this.Name = Name;
         return this;
     }
-    public Profile setSurname(String Surname){
+    public AR_Profile setSurname(String Surname){
         this.Surname = Surname;
         return this;
     }
-    public Profile setPhone(String Phone){
+    public AR_Profile setPhone(String Phone){
         this.Phone = Phone;
         return this;
     }
-    public Profile setEmail(String Email){
+    public AR_Profile setEmail(String Email){
         this.Email = Email;
         return this;
     }
-    public Profile setPassword(String Password){
+    public AR_Profile setPassword(String Password){
         this.Password = Password;
         return this;
     }

@@ -23,6 +23,7 @@
                 String userType = (String) session.getAttribute("userType");
                 String[] userDetails = (String[]) session.getAttribute("userDetails");
                 String fullName = "";
+                
                 if(userDetails != null)
                 {
                     if(userType.equals("T"))
@@ -33,13 +34,13 @@
                     else
                     {
                         // If they do not exist they will receive an error.
-                        response.sendRedirect("../?Error=Incorrect user type");
+                        response.sendRedirect("./?Error=Incorrect user type");
                     }
                 }
                 else
                 {
                     // If they do not exist they will receive an error.
-                    response.sendRedirect("../?Error=Please log in first");
+                    response.sendRedirect("./?Error=Please log in first");
                 }
                 
             %>
@@ -64,9 +65,9 @@
                 <!--Navigation Bar-->
                 <nav id="nav-container">
                     <ul id="list-container">
-                        <li class="link-container"><a href="#" class="links" id="current-page">Task Page</a></li>
+                        <li class="link-container"><a href="./technician_HomePage" class="links" id="current-page">Task Page</a></li>
                         <li class="link-container"><a href="./technicianProfile" class="links">Profile</a></li>
-                        <li class="link-container"><a href="./Technician_Details_Page" class="links">Contact Page</a></li>
+                        <li class="link-container"><a href="./TechnicianContactPage" class="links">Contact Page</a></li>
                     </ul>
                 </nav>
             </div>
@@ -90,30 +91,31 @@
                         </div>
                     </li>
                     <%
-                        ArrayList<String[]> services = (ArrayList<String[]>) request.getAttribute("serviceInfo");
+                         ArrayList<String[]> services = (ArrayList<String[]>) request.getAttribute("serviceInfo");
                         
                         Integer i = 1;
+                        
+                        System.out.println("Service: " + request.getAttribute("serviceInfo"));
                         
                         if(services != null)
                         {
                             for(var service : services)
                             {
-                                if(service[4].equals("Ongoing"))
-                                {
-                                    out.println("<li class=\"serviceItem\">"
-                                        + "<div class=\"outside-block\">"
-                                            + "<form name=\"viewMore-" + (i) + "\" action=\"viewMoreDetails\" method=\"Get\" class=\"view-form\">"
-                                                + "<div class=\"list-container\">" 
-                                                    + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
-                                                    + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
-                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\""+ service[2] + " " + service[3] +"\"/>"
-                                                    + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service[4] +"\"/>"
-                                                    + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
-                                                + "</div>"
-                                            + "</form>"
-                                        + "</div>"
-                                    + "</li>");
-                                }
+                                
+                                out.println("<li class=\"serviceItem\">"
+                                    + "<div class=\"outside-block\">"
+                                        + "<form name=\"viewMore-" + (i) + "\" action=\"Technician_Details_Page\" method=\"Post\" class=\"view-form\">"
+                                            + "<div class=\"list-container\">" 
+                                                + "<input class=\"info-text\" name=\"Priority\" readonly=\"readonly\" size=\"3\" value=\""+ service[0] +"\"/>"
+                                                + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service[1] +"\"/>"
+                                                + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\""+ service[2] + "\"/>"
+                                                + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service[3] +"\"/>"
+                                                + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
+                                            + "</div>"
+                                        + "</form>"
+                                    + "</div>"
+                                + "</li>");
+                                
                             }
                         }
                     %>

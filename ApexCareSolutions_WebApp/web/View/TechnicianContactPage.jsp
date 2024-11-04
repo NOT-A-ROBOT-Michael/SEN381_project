@@ -4,6 +4,8 @@
     Author     : arlow
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianDetails"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +14,7 @@
         
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Page</title>
+        <title>Contact Page</title>
         <link rel="stylesheet" href="./CSS/styling.css"/>
         <link rel="stylesheet" href="./CSS/TechContactStyling.css"/>
     </head>
@@ -26,6 +28,7 @@
                 String userType = (String) session.getAttribute("userType");
                 String[] userDetails = (String[]) session.getAttribute("userDetails");
                 String fullName = "";
+                 AR_TechnicianDetails tDetails = (AR_TechnicianDetails)session.getAttribute("tDetails");
                 if(userDetails != null)
                 {
                     if(userType.equals("T"))
@@ -44,6 +47,11 @@
                     // If they do not exist they will receive an error.
                     response.sendRedirect("./?Error=Please log in first");
                 }
+                
+
+
+                ArrayList<String[]> TechServices = (ArrayList<String[]>)request.getAttribute("techservices");
+
                 
             %>
             
@@ -67,9 +75,9 @@
                 <!--Navigation Bar-->
                 <nav id="nav-container">
                     <ul id="list-container">
-                        <li class="link-container"><a href="#" class="links" >Task Page</a></li>
+                        <li class="link-container"><a href="./technician_HomePage" class="links" >Task Page</a></li>
                         <li class="link-container"><a href="./technicianProfile" class="links">Profile</a></li>
-                        <li class="link-container"><a href="./Technician_Details_Page" class="links" id="current-page">Contact Page</a></li>
+                        <li class="link-container"><a href="./TechnicianContactPage" class="links" id="current-page">Contact Page</a></li>
                     </ul>
                 </nav>
             </div>
@@ -83,14 +91,14 @@
                     <li class="serviceItem"><h1 class="titleOfBlock" id="ongoing-title">Contact Details</h1></li>
                     <li class="item-Titles">
                         <div  class="list-container-title">
-                            
-                           
-                            <p class="info-text">Phone Number:</p>
-                            <p class="info-text">0123456789</p>
-                            <p class="info-text">Email:</p>
-                            <p class="info-text">csa@serviceagent.com</p>
-                            <p class="btn"></p>
-                            
+                            <div id="numbertext">
+                                <p class="info-text">Phone Number: </p>
+                                <p class="info-text">0123456789</p></div>
+                            <div id="emailtext">
+                                <p class="info-text">Email:</p>
+                                <p class="info-text">csa@serviceagent.com</p>                                
+                            </div>
+             
                         </div>
                     </li>
 
@@ -101,15 +109,38 @@
                
                 <ul class="info-container">
                     <li class="serviceItem"><h1 class="titleOfBlock" id="ongoing-title">Provide Query</h1></li>
-                    
+                    <form name="peovideQuery" action="queryPage" method="POST" id="changeProfile">
                         <div  class="list-container-title">
-                            
-                            <p class="key">Service ID:</p>
-                            <input type="text" name="txt_clientID" value="" size="15" readonly="readonly" class="value"id="TechText"/>
-                            <p class="key">Service Query:</p>
-                            <input type="text" name="txt_clientID" value="" size="15" readonly="readonly" class="value"id="TechText"/>
-                            <input type="submit" value="Submit" name="Submit" class="btn" id="bottomButton"/>
+                            <div id="inputID">
+                                <p class="key">Technician ID:</p>
+                                <input type="text" name="txt_TechnicianID" readonly value="<%= tDetails.getTechID() %>" size="15" class="value"id="txtID"/>
+                            </div>
+                            <div id="dropdownID">
+                                <p class="key">Service:</p>
+                                <select name="TaskDropdown" id="TaskDropdown">
+                                    <option value="" disabled selected>Select Service</option>
+                                    <%
+                                        for(var services : TechServices)
+                                    {
+                                        out.println(" <option value=\"" +services[0]+"\">"+services[1]+" - " + services[2] + " "+services[3]+"</option>");
+                                    } 
+                                    %>
+                                </select>
+                                 </div>
+                            <div id="inputQuery">
+                                <p class="key">Service Query:</p>
+                                <textarea type="text" name="txt_query" value="" size="5000" class="value"id="txtQuery"/></textarea>
+                            </div>
                         </div>
+                            <div id="btn-container">
+                        
+                               <input type="submit" value="Submit" name="Submit" class="btn" id="bottomButton"/>
+                        
+                            </div>
+                    </form>
+                    
+                    
+                            
                     
 
                 </ul>

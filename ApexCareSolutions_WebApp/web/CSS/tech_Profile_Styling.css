@@ -88,10 +88,11 @@
 #submit-container{
     text-align: center;
     width: 60%;
-    margin-top: 2vh;
+    margin-top: 8vh;
     margin-left: auto;
     margin-right: auto;
     grid-area: submit;
+    margin-top: 8%;
 }
 
 .key{

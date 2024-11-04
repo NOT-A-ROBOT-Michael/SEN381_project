@@ -8,14 +8,14 @@ package sen381_project.Bussiness_Logic_Layer.Objects;
  *
  * @author arlow
  */
-public class Status 
+public class AR_Status 
 {
     private Integer serviceID;
     private String StatusUpdate;
     
-    public Status(){}
+    public AR_Status(){}
     
-    public Status(Integer serviceID, String txtStatus)
+    public AR_Status(Integer serviceID, String txtStatus)
     {
         this.serviceID = serviceID;
         this.StatusUpdate = txtStatus;
@@ -29,12 +29,12 @@ public class Status
         return this.serviceID;
     }
     
-    public Status setStatusUpdate(String noteText){
+    public AR_Status setStatusUpdate(String noteText){
         this.StatusUpdate = noteText;
         return this;
     }
     
-    public Status setServiceID(Integer serviceID){
+    public AR_Status setServiceID(Integer serviceID){
         this.serviceID = serviceID;
         return this;
     }

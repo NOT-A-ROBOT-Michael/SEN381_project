@@ -4,19 +4,19 @@
  */
 package sen381_project.Bussiness_Logic_Layer;
 
-import sen381_project.Bussiness_Logic_Layer.Objects.Notes;
+import sen381_project.Bussiness_Logic_Layer.Objects.AR_Notes;
 import sen381_project.Data_Layer.ConnectionProvider;
 
 /**
  *
  * @author arlow
  */
-public class NotesThing {
+public class AR_NotesThing {
     ConnectionProvider cpt = new ConnectionProvider();
     
-    public Notes CreateNoteObject(Integer serviceID, String note)
+    public AR_Notes CreateNoteObject(Integer serviceID, String note)
     {
-        Notes notes = new Notes();
+        AR_Notes notes = new AR_Notes();
         
         notes.setNoteID(serviceID).setNoteText(note);
         
@@ -28,7 +28,7 @@ public class NotesThing {
         try
         {
             //Initialize
-            Notes notes;
+            AR_Notes notes;
 
             // create notes object
             notes = CreateNoteObject(serviceID, note);
@@ -47,12 +47,12 @@ public class NotesThing {
     }
     
     
-    public Notes getNote(Integer noteID){
+    public AR_Notes getNote(Integer noteID){
         
         try
         {
             //Initailize
-            Notes note;
+            AR_Notes note;
 
             //run get sql
             note = cpt.getNotes(noteID);

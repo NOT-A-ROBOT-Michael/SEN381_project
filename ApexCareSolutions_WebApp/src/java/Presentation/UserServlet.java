@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import sen381_project.Bussiness_Logic_Layer.AR_TechnicanThing;
 import sen381_project.Bussiness_Logic_Layer.ServiceLogic;
 
 // The following servlet can be used by the client-, technician- and call service agent page
@@ -19,7 +20,7 @@ public class UserServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        
+        AR_TechnicanThing techTask = new AR_TechnicanThing();
         // Used to get the session info
         HttpSession session = request.getSession(false);
         
@@ -46,6 +47,8 @@ public class UserServlet extends HttpServlet
                 // The following gets the basic service information to be displayed in the client home page.
                 ArrayList<String[]> newServices = sl.serviceDetails(userIDNum);
                 
+                ArrayList<String[]> services ;
+                
                 // The following switch determines which jsp page needs to be loaded
                 switch(userType)
                 {
@@ -59,7 +62,9 @@ public class UserServlet extends HttpServlet
                     case "T":
                     {
                         // Technician
-                        request.setAttribute("serviceInfo", newServices);
+                        String email = userDetails[5];
+                        services = techTask.getTechnicians(email);
+                        request.setAttribute("serviceInfo", services);
                         request.getRequestDispatcher("./View/technician_HomePage.jsp").forward(request, response);
                         break;
                     }

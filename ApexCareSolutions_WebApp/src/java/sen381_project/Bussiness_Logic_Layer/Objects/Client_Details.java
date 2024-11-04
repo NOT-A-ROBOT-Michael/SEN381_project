@@ -35,6 +35,15 @@ public class Client_Details
         return clientInfo;
     }
     
+    public String[] getClientInfo2()
+    {
+        
+        
+        String[] clientInfo = {this.clientID.toString(), this.addressID.toString(), this.firstName, this.lastName, this.phoneNumber, this.email, this.password};
+        
+        return clientInfo;
+    }
+    
     // Returns the client's password
     public String getClientPass()
     {

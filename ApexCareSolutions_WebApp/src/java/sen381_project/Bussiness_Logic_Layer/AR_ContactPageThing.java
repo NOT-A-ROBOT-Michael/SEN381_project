@@ -4,16 +4,16 @@
  */
 package sen381_project.Bussiness_Logic_Layer;
 
-import sen381_project.Bussiness_Logic_Layer.Objects.ContactPage;
+import sen381_project.Bussiness_Logic_Layer.Objects.AR_ContactPage;
 import sen381_project.Data_Layer.ConnectionProvider;
 
 /**
  *
  * @author arlow
  */
-public class ContactPageThing {
+public class AR_ContactPageThing {
     ConnectionProvider cpt = new ConnectionProvider();
-    ContactPage contact = new ContactPage();
+    AR_ContactPage contact = new AR_ContactPage();
     public void/*ContactPage*/ CreateNoteObject(Integer serviceID, String Query)
     {
         
@@ -34,5 +34,13 @@ public class ContactPageThing {
             System.out.println("Something went wrong while trying to execute contact page details: " + e.getMessage());
         }
         
+    }
+    public void InsertIntoServiceQuery(Integer ServiceID,Integer TechID, String Query)
+    {
+        try{
+        cpt.InsertContactPageQuery(ServiceID, TechID, Query);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

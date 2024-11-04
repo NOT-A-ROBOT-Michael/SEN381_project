@@ -10,21 +10,21 @@ import java.util.Date;
  *
  * @author arlow
  */
-public class TechnicianTask {
+public class AR_TechnicianTask {
     private Integer serviceID;
     private String priority;
     private String status;
     private Date requestedDate;   
     private String Email;
     
-    public TechnicianTask(){}
+    public AR_TechnicianTask(){}
     
-    public TechnicianTask(String email)
+    public AR_TechnicianTask(String email)
     {
         this.Email = email;
     }
     
-    public TechnicianTask(Integer serviceID, String priority, String status, 
+    public AR_TechnicianTask(Integer serviceID, String priority, String status, 
             Date requestedDate, String email)
     {
         
@@ -35,11 +35,16 @@ public class TechnicianTask {
         this.serviceID = serviceID;
     }
     
+    public String[] getTechTask()
+    {
+        return new String[] {this.priority, this.serviceID.toString(), this.status, this.requestedDate.toString()};
+    }
+    
     public Integer getServiceID(){
         return this.serviceID;
     }
     
-    public TechnicianTask setServiceID(Integer serviceID){
+    public AR_TechnicianTask setServiceID(Integer serviceID){
         this.serviceID = serviceID;
         return this;
     }
@@ -49,7 +54,7 @@ public class TechnicianTask {
         return this.priority;
     }
     
-    public TechnicianTask setPriority(String priority){
+    public AR_TechnicianTask setPriority(String priority){
         this.priority = priority;
         return this;
     }
@@ -59,7 +64,7 @@ public class TechnicianTask {
         return this.status;
     }
     
-    public TechnicianTask setStatus(String status){
+    public AR_TechnicianTask setStatus(String status){
         this.status = status;
         return this;
     }
@@ -69,7 +74,7 @@ public class TechnicianTask {
         return this.requestedDate;
     }
     
-    public TechnicianTask setRequestedDate(Date requestedDate){
+    public AR_TechnicianTask setRequestedDate(Date requestedDate){
         this.requestedDate = requestedDate;
         return this;
     }
@@ -79,13 +84,17 @@ public class TechnicianTask {
         return this.Email;
     }
     
-    public TechnicianTask setEmail(String email){
+    public AR_TechnicianTask setEmail(String email){
         this.Email = email;
         return this;
     }
         
     
-    
+    @Override
+    public String toString()
+    {
+        return "--------------Service ID: " + serviceID;
+    }
     
     
 }

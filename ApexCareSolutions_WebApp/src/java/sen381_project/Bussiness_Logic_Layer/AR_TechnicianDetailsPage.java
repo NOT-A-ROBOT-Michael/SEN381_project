@@ -4,26 +4,25 @@
  */
 package sen381_project.Bussiness_Logic_Layer;
 
-import java.util.ArrayList;
 import sen381_project.Data_Layer.ConnectionProvider;
-import sen381_project.Bussiness_Logic_Layer.Objects.TechnicianDetails;
+import sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianDetails;
 /**
  *
  * @author arlow
  */
-public class TechnicianDetailsPage {
+public class AR_TechnicianDetailsPage {
      final ConnectionProvider cpt = new ConnectionProvider();
     
      
-     public TechnicianDetails getTechnicianDetails(){
+     public AR_TechnicianDetails getTechnicianDetails(String techEmail){
          
          try
          {
              //Initialize
-            TechnicianDetails TechDetails;
+            AR_TechnicianDetails TechDetails;
 
             //run sql code and get technician tasks from database
-            TechDetails = cpt.ViewTechDetails();
+            TechDetails = cpt.ViewTechDetails(techEmail);
 
             //return the object
             return TechDetails;

@@ -8,12 +8,10 @@ import sen381_project.Bussiness_Logic_Layer.Objects.Address;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import sen381_project.Bussiness_Logic_Layer.Objects.ClientDetails;
-import sen381_project.Bussiness_Logic_Layer.Objects.Notes;
-import sen381_project.Bussiness_Logic_Layer.Objects.TechnicianDetails;
-import sen381_project.Bussiness_Logic_Layer.Objects.TechnicianTask;
+import sen381_project.Bussiness_Logic_Layer.Objects.AR_ClientDetails;
+import sen381_project.Bussiness_Logic_Layer.Objects.AR_Notes;
+import sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianDetails;
+import sen381_project.Bussiness_Logic_Layer.Objects.AR_TechnicianTask;
 
 public class ConnectionProvider {
     String TechEmail;
@@ -627,7 +625,7 @@ public class ConnectionProvider {
     
     // Step 7: Create their environment.
     
- public ArrayList<TechnicianTask> GetTechTasks(String Email)throws ClassNotFoundException
+ public ArrayList<AR_TechnicianTask> GetTechTasks(String Email)throws ClassNotFoundException
     {
         TechEmail= Email;
     String sql = "SELECT \"Priority\", \"Status\", \"Requested_Date\", \"ServiceID\" FROM \"TechTaskPageView\" WHERE \"Email\" ="+ "'"+Email+"'";    
@@ -635,13 +633,13 @@ public class ConnectionProvider {
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
 
-           ArrayList<TechnicianTask> TaskList = new ArrayList<TechnicianTask>(); 
+           ArrayList<AR_TechnicianTask> TaskList = new ArrayList<AR_TechnicianTask>(); 
 
             // Populates the list with User objects
             while (rs.next())
             {
                 //Initialize
-                TechnicianTask task = new TechnicianTask();
+                AR_TechnicianTask task = new AR_TechnicianTask();
                 
                 //assign selected values to variables
                 Integer sServiceID = rs.getInt("ServiceID");
@@ -669,7 +667,7 @@ public class ConnectionProvider {
          return null;
     }
     
-    public void UpdateProfile(int ID,String FirsName, String LastName, String PhoneNumber, String Email, String Password) throws ClassNotFoundException
+    public void UpdateProfile(int ID,String PhoneNumber, String Password) throws ClassNotFoundException
       {
         
         Connection conn;
@@ -679,8 +677,7 @@ public class ConnectionProvider {
             conn = getCon();  
             Statement st = conn.createStatement();
             
-         String UpdateQuery = "Update \"Technician\" SET \"First_Name\"="+ "'"+FirsName+"'"+""
-                 + ", \"Last_Name\"="+ "'"+LastName+"'"+", \"Phone_Number\"="+ "'"+PhoneNumber+"'"+""
+         String UpdateQuery = "Update \"Technician\" SET  \"Phone_Number\"="+ "'"+PhoneNumber+"'"+""
                  + ", \"Password\"="+ "'"+Password+"'"+" WHERE \"TechnicianID\" = "+ "'"+ID+"'";
           
         
@@ -694,6 +691,89 @@ public class ConnectionProvider {
            System.out.println("Could not add the data: "+ ex.getMessage());
         }
       }
+    
+        public ArrayList<Integer> getServicesOfTechnician(Integer techID) throws ClassNotFoundException
+        {
+            String query = "SELECT \"ServiceID\" FROM \"Service Technician\" WHERE \"TechnicianID\" = ?";
+            ArrayList<Integer> techServices = new ArrayList<>();
+            try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+            {
+                psmt.setInt(1, techID);
+ 
+                ResultSet rs = psmt.executeQuery();
+ 
+                while(rs.next())
+                {
+                    System.out.println("!Info!----- Got a service -----!Info!");
+                    techServices.add(rs.getInt("ServiceID"));
+                }
+
+                return techServices;
+            }
+            catch (SQLException e)
+            {
+                System.out.println("!E!----- (ConnectionProvider -> getServicesOfTechnician)Error, while trying to get technician services: " + e.getMessage() + "-----!E!");
+            }
+            return null;
+        }
+    
+    
+    
+    
+    public ArrayList<String[]> getServiceForTech(ArrayList<Integer> serviceID_List) throws ClassNotFoundException
+        {
+            String query = "SELECT * FROM \"queryView\" WHERE \"ServiceID\" = ?";
+            ArrayList<String[]> serviceDetailsForTech = new ArrayList<>();
+            try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+            {
+                for(var serviceID : serviceID_List)
+                {
+                    psmt.setInt(1, serviceID);
+ 
+                    ResultSet rs = psmt.executeQuery();
+ 
+                    while(rs.next())
+                    {
+                        System.out.println("!Info!----- Got a technician -----!Info!");
+                        serviceDetailsForTech.add(new String[] {rs.getString("ServiceID"), rs.getString("Service_Title"), rs.getString("First_Name"), rs.getString("Last_Name")});
+                    }
+                }
+                return serviceDetailsForTech;
+            }
+            catch (SQLException e)
+            {
+                System.out.println("!E!----- (ConnectionProvider -> getServiceForTech)Error, while trying to get technicians that belong to a specialisation: " + e.getMessage() + "-----!E!");
+            }
+            return null;
+        }
+    
+    
+    
+    
+    public void InsertContactPageQuery (Integer ServiceID,Integer TechID, String Query) throws ClassNotFoundException
+    {
+    String sql = "INSERT INTO \"Service Query\" (\"ServiceID\", \"Description\" , \"Requested_Date\", \"TechnicianID\") VALUES (?, ?, ?, ?);";
+    LocalDate localDate = LocalDate.now();
+    Date date = Date.valueOf(localDate);
+    try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(sql);)
+        {
+            // Formats the local date to a sql date
+             
+            
+            psmt.setInt(1, ServiceID);
+            psmt.setString(2, Query);
+            psmt.setDate(3, date );
+            psmt.setInt(4, TechID);
+            
+            psmt.execute();
+            
+            System.out.println("!Info!----- Successfully added technician to service Queries. -----!Info!");
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> addTechnicianToQueryService) Error, while trying to add a technician to service: " + e.getMessage() + " -----!E!");
+        }
+    }
     
         public void ContactPageProvideQuery(Integer ServiceID,String Query) throws ClassNotFoundException
         {
@@ -750,24 +830,28 @@ public class ConnectionProvider {
         
         
         
-        public TechnicianDetails ViewTechDetails() throws ClassNotFoundException
+        public AR_TechnicianDetails ViewTechDetails(String techEmail) throws ClassNotFoundException
         {
-           TechnicianDetails TechDetails = new TechnicianDetails();
+           AR_TechnicianDetails TechDetails = new AR_TechnicianDetails();
+            System.out.println("---------------------------------------------------------------------------------------------------------------");
+            
+        String sql1 = "SELECT  \"TechnicianID\",  \"First_Name\",  \"Last_Name\",  \"Phone_Number\" ,  \"Email\"FROM \"Technician\" WHERE \"Email\" = ? ";  
+        try (Connection conn = getCon();) {
             
             
-        String sql1 = "SELECT  \"TechnicianID\",  \"First_Name\",  \"Last_Name\",  \"Phone_Number\" ,  \"Email\"FROM \"Technician\" WHERE \"Email\" ="+ "'"+TechEmail+"'";  
-        try (
-            Connection conn = getCon();
             PreparedStatement pstmt = conn.prepareStatement(sql1);
+            pstmt.setString(1, techEmail);
+                
             ResultSet rs = pstmt.executeQuery();
             
-        ) {
-            rs.first();
+            rs.next();
             
-
+           
+            
             // Populates the list with User objects
             
                 Integer TechID = rs.getInt("TechnicianID");
+                
                 String Name = rs.getString("First_Name");
                 String Surname = rs.getString("Last_Name");
                 String email = rs.getString("Email");
@@ -791,24 +875,26 @@ public class ConnectionProvider {
         }
         
 
-                                                    // Moet die service Id nie a integer wees nie?????
-       public ClientDetails ViewClientDetails(Integer ServiceID) throws ClassNotFoundException
+        public AR_ClientDetails ViewClientDetails(Integer ServiceID) throws ClassNotFoundException
         {
-        String sql1 = "SELECT  \"Country\",\"State\",\"City\",\"Street_Name\",\"Date_Requested\",\"First_Name\",\"Last_Name\",\"Description\",\"Phone_Number\" FROM \"ClientDetailsView\" WHERE \"ServiceID\" ="+ "'"+ServiceID+"'";  
-           try (Connection conn = getCon();
+            
+        String sql1 = "SELECT  \"Country\",\"State\",\"City\",\"Street_Name\",\"Requested_Date\",\"First_Name\",\"Last_Name\",\"Description\",\"Phone_Number\" FROM \"ClientDetailsView\" WHERE \"ServiceID\" ="+ "'"+ServiceID+"'";  
+         
+        try (Connection conn = getCon();
              PreparedStatement pstmt = conn.prepareStatement(sql1);
              ResultSet rs = pstmt.executeQuery()) {
-
-          ClientDetails details = new ClientDetails();
+            
+          AR_ClientDetails details = new AR_ClientDetails();
 
             // Populates the list with User objects
-           rs.first();
+           
+           rs.next();
            
                 String Country = rs.getString("Country");
                 String State = rs.getString("State");
                 String City = rs.getString("City");
                 String Street = rs.getString("Street_Name");
-                java.util.Date date = rs.getDate("Date_Requested");
+                java.util.Date date = rs.getDate("Requested_Date");
                 String Name = rs.getString("First_Name");
                 String Surname = rs.getString("Last_Name");
                 String Description = rs.getString("Description");
@@ -817,6 +903,7 @@ public class ConnectionProvider {
                details.setCity(City).setCountry(Country).setDescription(Description)
                       .setName(Name).setNumber(Number).setServiceID(ServiceID).setState(State)
                       .setStreet(Street).setSurname(Surname).setdate(date);
+               System.out.println("doe goed is geset");
            
             return details;
             
@@ -834,7 +921,7 @@ public class ConnectionProvider {
             conn = getCon();  
             Statement st = conn.createStatement();
            // Status status = new Status();
-         String UpdateQuery = "Update \"Services\" SET \"Status\"="+ "'"+Status+"'"+" WHERE \"ServiceID\" = "+ "'"+Status+"'";
+         String UpdateQuery = "Update \"Services\" SET \"Status\"="+ "'"+Status+"'"+" WHERE \"ServiceID\" = "+ "'"+ServiceID+"'";
           
         
             st.executeUpdate(UpdateQuery);
@@ -849,7 +936,7 @@ public class ConnectionProvider {
         }
        
        
-      public Integer SaveNotes(Notes note) throws ClassNotFoundException
+      public Integer SaveNotes(AR_Notes note) throws ClassNotFoundException
        {
            try{
             Connection conn = getCon();
@@ -889,7 +976,7 @@ public class ConnectionProvider {
           
          return null; 
        }
-      public Notes getNotes (Integer NoteID) throws ClassNotFoundException
+      public AR_Notes getNotes (Integer NoteID) throws ClassNotFoundException
       {
       String sql1 = "SELECT  \"Note_text\" FROM \"Note\" WHERE \"NoteID\" ="+ "'"+NoteID+"'";  
          try (Connection conn = getCon();
@@ -899,7 +986,7 @@ public class ConnectionProvider {
              rs.first();
               Integer noteID = rs.getInt("Note_text");
               
-         Notes note = new Notes();
+         AR_Notes note = new AR_Notes();
          
          note.setNoteID(noteID);
          return note;

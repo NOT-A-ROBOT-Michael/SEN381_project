@@ -26,19 +26,18 @@
     margin: 0%;
 }
 
-.list-container-title{
+.list-container-title {
     
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-columns: auto auto auto auto auto;
     text-align: center;
     justify-items: center;
-    width: 80%;
     padding: 0% 1%;
     border: solid transparent 3px;
     font-weight: bold;
     color: white;
     font-size: x-large;
+    justify-content: space-around;
 }
 
 .list-container{
@@ -57,11 +56,8 @@
 
 .info-text{
     font-weight: bold;
-    margin: 1%;
     text-align: center;
     white-space: nowrap;
-    width: 150px;
-    background: transparent;
     border: none;
 }
 
@@ -117,4 +113,68 @@
     justify-content: flex-end;
     text-align: center;
     width: fit-content;
+}
+#txtID{
+    height: 25%;
+    width: 90%;
+    border-radius: 10px;
+    min-width: 50px;
+}
+#txtQuery{
+    height: 50%;
+    width: 90%;
+    border-radius: 10px;
+    min-width: 50px;
+}
+#bottomButton{
+    background-color: lightgray;
+    border-style: hidden;
+    padding: 2% 5%;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 2vh;
+    width: fit-content;
+    
+}
+#emailtext{
+    display: flex;
+    gap: 5%;
+}
+#numbertext{
+    display: flex;
+    gap: 5%;
+}
+#inputID{
+   display: grid;
+   grid-template-columns: auto 5vw;
+   align-items: center;
+   column-gap: 5%; 
+   
+}
+#inputQuery{
+   display: grid;
+    grid-template-columns: auto 20vw;
+    align-items: center;
+    column-gap: 5%; 
+}
+
+.key{
+    white-space: nowrap;
+}
+
+#btn-container{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+#dropdownID{
+    display: grid;
+   grid-template-columns: auto min-content;
+   align-items: center;
+   column-gap: 5%; 
+   
+}
+#TaskDropdown{
+    border-radius: 7px;
 }
