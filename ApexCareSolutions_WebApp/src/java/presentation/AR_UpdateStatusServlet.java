@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import businesslogiclayer.logic.AR_StatusThing;
+import businesslogiclayer.logic.StatusLogic;
 
 /**
  *
@@ -20,7 +20,7 @@ import businesslogiclayer.logic.AR_StatusThing;
 public class AR_UpdateStatusServlet extends HttpServlet{
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
    {
-   AR_StatusThing ST = new AR_StatusThing();
+   StatusLogic ST = new StatusLogic();
        
    Integer serviceID = Integer.parseInt(request.getParameter("serviceID"));
    

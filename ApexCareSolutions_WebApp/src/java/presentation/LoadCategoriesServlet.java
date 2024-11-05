@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
-import businesslogiclayer.logic.LoadCategoriesLogic;
+import businesslogiclayer.logic.LoadCategoryLogic;
 
 @WebServlet("/client_LogProblem")
 public class LoadCategoriesServlet extends HttpServlet
@@ -19,7 +19,7 @@ public class LoadCategoriesServlet extends HttpServlet
     {
         HttpSession session = request.getSession();
         
-        LoadCategoriesLogic lcl = new LoadCategoriesLogic();
+        LoadCategoryLogic lcl = new LoadCategoryLogic();
         
         
             // Gets the client details from the session storage

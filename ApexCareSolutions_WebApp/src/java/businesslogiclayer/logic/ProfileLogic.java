@@ -11,7 +11,7 @@ import datalayer.ConnectionProvider;
  *
  * @author arlow
  */
-public class AR_ProfileThing {
+public class ProfileLogic {
     ConnectionProvider cpt = new ConnectionProvider();
     
     public AR_Profile CreateNoteObject(Integer serviceID,String Phone,String Password)

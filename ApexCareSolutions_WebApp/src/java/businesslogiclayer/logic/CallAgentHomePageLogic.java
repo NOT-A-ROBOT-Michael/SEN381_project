@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import businesslogiclayer.object.Service;
 import datalayer.ConnectionProvider;
 
-public class CSA_HomePage_Logic {
+public class CallAgentHomePageLogic {
     
     ConnectionProvider cp = new ConnectionProvider();
     
@@ -56,4 +56,8 @@ public class CSA_HomePage_Logic {
         cp.updateServiceToDeclined(serviceID);
     }
     
+    public void completeService(Integer serviceID) throws Exception
+    {
+        cp.updateServiceToComplete(serviceID);
+    }
 }

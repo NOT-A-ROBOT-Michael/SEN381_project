@@ -7,14 +7,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import businesslogiclayer.logic.CSA_ViewDetails_Logic;
+import businesslogiclayer.logic.CallAgentViewDetailLogic;
 
 @WebServlet("/viewMoreDetailsCSA")
 public class CSADetailsServlet extends HttpServlet
 {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        CSA_ViewDetails_Logic csa_DetailsLogic = new CSA_ViewDetails_Logic();
+        CallAgentViewDetailLogic csa_DetailsLogic = new CallAgentViewDetailLogic();
         
         try
         {

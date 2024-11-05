@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import businesslogiclayer.object.MR_ClientServiceListItem;
         
 //import Client Serives to return a list
-import businesslogiclayer.logic.MR_ClientServices;
+import businesslogiclayer.logic.ClientContractServiceLogic;
 
 /**
  *
@@ -43,7 +43,7 @@ public class MR_ClientContractServlet extends HttpServlet{
             if(userType.equals("C"))
             {
                 //Initialize
-                MR_ClientServices clientServices = new MR_ClientServices();
+                ClientContractServiceLogic clientServices = new ClientContractServiceLogic();
                 
         
                 //variables

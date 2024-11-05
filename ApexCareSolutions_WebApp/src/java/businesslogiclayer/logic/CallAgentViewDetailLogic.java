@@ -4,7 +4,7 @@ package businesslogiclayer.logic;
 import datalayer.ConnectionProvider;
 import businesslogiclayer.object.CSA_Service;
 
-public class CSA_ViewDetails_Logic {
+public class CallAgentViewDetailLogic {
     
     public String[] getCSA_ServiceDetails(Integer serviceID) throws Exception
     {

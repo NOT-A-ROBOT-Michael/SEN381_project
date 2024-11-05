@@ -12,7 +12,7 @@ import datalayer.ConnectionProvider;
  *
  * @author arlow
  */
-public class AR_ClientDetailsThing {
+public class ClientDetailLogic {
     ConnectionProvider cpt = new ConnectionProvider();
     
     public Client_Details CreateNoteObject(Integer serviceID)

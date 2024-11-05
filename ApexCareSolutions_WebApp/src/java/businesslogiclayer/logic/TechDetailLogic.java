@@ -10,7 +10,7 @@ import businesslogiclayer.object.AR_TechnicianDetails;
  *
  * @author arlow
  */
-public class AR_TechnicianDetailsPage {
+public class TechDetailLogic {
      final ConnectionProvider cpt = new ConnectionProvider();
     
      

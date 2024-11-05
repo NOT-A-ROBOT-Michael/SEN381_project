@@ -4,8 +4,8 @@
     Author     : arlow
 --%>
 
+<%@page import="businesslogiclayer.logic.ProfileLogic"%>
 <%@page import="businesslogiclayer.object.AR_TechnicianDetails"%>
-<%@page import="businesslogiclayer.logic.AR_ProfileThing"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Scanner"%>
@@ -26,7 +26,7 @@
                 String userType = (String) session.getAttribute("userType");
                 String[] userDetails = (String[]) session.getAttribute("userDetails");
                 String fullName = "";
-                AR_ProfileThing PT = new AR_ProfileThing(); 
+                ProfileLogic PT = new ProfileLogic(); 
                  AR_TechnicianDetails tDetails = (AR_TechnicianDetails)session.getAttribute("tDetails");
                 if(userDetails != null)
                 {

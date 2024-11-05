@@ -17,11 +17,11 @@ import datalayer.TechnicianDAO;
  *
  * @author morne
  */
-public class TechnicianService {
+public class TechServiceLogic {
     private final TechnicianDAO technicianDAO;
     private final AddressDAO addressDAO;
     
-    public TechnicianService(){
+    public TechServiceLogic(){
         this.technicianDAO = new TechnicianDAO();
         this.addressDAO = new AddressDAO();
     }

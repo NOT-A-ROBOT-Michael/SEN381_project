@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import businesslogiclayer.logic.CSA_HomePage_Logic;
+import businesslogiclayer.logic.CallAgentHomePageLogic;
 
 @WebServlet("/addTechToService")
 public class AddServiceServlet extends HttpServlet
@@ -15,7 +15,7 @@ public class AddServiceServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        CSA_HomePage_Logic csa_HomeLogic = new CSA_HomePage_Logic();
+        CallAgentHomePageLogic csa_HomeLogic = new CallAgentHomePageLogic();
         
         try
         {

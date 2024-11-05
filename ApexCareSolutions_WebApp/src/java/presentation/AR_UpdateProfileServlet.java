@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import businesslogiclayer.logic.AR_ProfileThing;
+import businesslogiclayer.logic.ProfileLogic;
 
 /**
  *
@@ -21,7 +21,7 @@ public class AR_UpdateProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
    {
 
-   AR_ProfileThing pt = new AR_ProfileThing();
+   ProfileLogic pt = new ProfileLogic();
    
    Integer TechID = Integer.parseInt(request.getParameter("txt_TechID"));
    String phone =  request.getParameter("txt_phoneNumber");

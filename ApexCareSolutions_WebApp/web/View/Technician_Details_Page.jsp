@@ -1,4 +1,4 @@
-<%@page import="businesslogiclayer.logic.AR_NotesThing"%>
+<%@page import="businesslogiclayer.logic.NoteLogic"%>
 <%@page import="businesslogiclayer.object.AR_TechnicianDetails"%>
 <%@page import="businesslogiclayer.object.AR_ClientDetails"%>
 <%@page import="java.util.Scanner"%>
@@ -28,7 +28,7 @@
                 
                 AR_TechnicianDetails tDetails = (AR_TechnicianDetails)session.getAttribute("tDetails");
                 //Client_Details  cDetails = (Client_Details)session.getAttribute("cDetails2");
-                AR_NotesThing NT = new AR_NotesThing();
+                NoteLogic NT = new NoteLogic();
              
                 
                

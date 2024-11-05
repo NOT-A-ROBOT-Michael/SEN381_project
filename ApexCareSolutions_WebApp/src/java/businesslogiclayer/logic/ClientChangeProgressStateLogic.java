@@ -9,7 +9,7 @@ import datalayer.MR_SqlMarkDone;
  *
  * @author iyesme
  */
-public class MR_ChangeProgressState {
+public class ClientChangeProgressStateLogic {
     //change the state of the progress
     // this can only change the state from "completed by technician" to completed
     MR_SqlMarkDone sqlmd = new MR_SqlMarkDone();

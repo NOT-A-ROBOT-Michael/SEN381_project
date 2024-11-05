@@ -16,7 +16,7 @@ import datalayer.MR_SqlClientServices;
 import java.util.ArrayList;
 
 
-public class MR_ClientServices {
+public class ClientContractServiceLogic {
     MR_SqlClientServices cs = new MR_SqlClientServices();
     
     

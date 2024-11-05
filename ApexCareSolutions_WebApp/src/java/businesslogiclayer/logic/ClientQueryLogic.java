@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author iyesme
  */
-public class MR_ClientQueries {
+public class ClientQueryLogic {
     
     MR_SqlClientQuery sqlcq = new MR_SqlClientQuery();
     

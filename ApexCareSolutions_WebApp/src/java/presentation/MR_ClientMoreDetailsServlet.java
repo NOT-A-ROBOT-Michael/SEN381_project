@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-import businesslogiclayer.logic.MR_ClientServices;
+import businesslogiclayer.logic.ClientContractServiceLogic;
 import businesslogiclayer.object.MR_ClientService;
 
 
@@ -40,7 +40,7 @@ public class MR_ClientMoreDetailsServlet extends HttpServlet
         
         
                 //Instanciate
-                MR_ClientServices clientServiceFunc = new MR_ClientServices();
+                ClientContractServiceLogic clientServiceFunc = new ClientContractServiceLogic();
         
                 //get service id from post
                 ServiceIDString = request.getParameter("serviceID");

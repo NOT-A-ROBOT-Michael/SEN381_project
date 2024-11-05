@@ -10,7 +10,7 @@ import businesslogiclayer.object.AR_Status;
  *
  * @author arlow
  */
-public class AR_StatusThing {
+public class StatusLogic {
     ConnectionProvider cpt = new ConnectionProvider();
     AR_Status status = new AR_Status();
     public AR_Status CreateStatusObject(Integer serviceID, String StatusUpdate)

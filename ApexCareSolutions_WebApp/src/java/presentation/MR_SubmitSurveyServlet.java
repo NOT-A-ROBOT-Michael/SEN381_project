@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import businesslogiclayer.object.MR_Survey;
-import businesslogiclayer.logic.MR_writeSurvey;
+import businesslogiclayer.logic.ClientWriteSurveyLogic;
 /**
  *
  * @author iyesme
@@ -46,7 +46,7 @@ public class MR_SubmitSurveyServlet extends HttpServlet{
                 String rateServiceString, rateTechString, rateServiceAgentString;
 
                 //Initialize
-                MR_writeSurvey surveyFunc = new MR_writeSurvey();
+                ClientWriteSurveyLogic surveyFunc = new ClientWriteSurveyLogic();
                 MR_Survey survey = new MR_Survey();
         
                 //get ratings from parameters

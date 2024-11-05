@@ -16,11 +16,11 @@ import datalayer.ClientDAO;
  *
  * @author morne
  */
-public class ClientService {
+public class ClientServiceLogic {
     private final ClientDAO clientDAO;
     private final AddressDAO addressDAO;
     
-    public ClientService(){
+    public ClientServiceLogic(){
         this.clientDAO = new ClientDAO();
         this.addressDAO = new AddressDAO();
     }

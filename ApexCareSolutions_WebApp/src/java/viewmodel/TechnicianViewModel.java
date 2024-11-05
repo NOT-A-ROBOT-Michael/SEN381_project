@@ -10,17 +10,17 @@ import java.util.regex.Pattern;
 import businesslogiclayer.object.Address;
 import businesslogiclayer.object.Technician;
 import businesslogiclayer.object.TechnicianLocation;
-import businesslogiclayer.logic.TechnicianService;
+import businesslogiclayer.logic.TechServiceLogic;
 
 /**
  *
  * @author morne
  */
 public class TechnicianViewModel {
-    private final TechnicianService technicianService;
+    private final TechServiceLogic technicianService;
     
     public TechnicianViewModel(){
-        this.technicianService = new TechnicianService();
+        this.technicianService = new TechServiceLogic();
     }
     
     public String[] registerTechnician(String name, String surname, String email, String phoneNumber, String specializationString, String password, String passwordConfirm, String country, String state, String city, String streetName) throws ClassNotFoundException{

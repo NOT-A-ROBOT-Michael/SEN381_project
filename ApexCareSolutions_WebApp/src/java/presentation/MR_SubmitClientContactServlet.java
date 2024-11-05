@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Date;
 
 
-import businesslogiclayer.logic.MR_ClientQueries;
+import businesslogiclayer.logic.ClientQueryLogic;
 import businesslogiclayer.object.MR_ClientQuery;
 /**
  *
@@ -45,7 +45,7 @@ public class MR_SubmitClientContactServlet extends HttpServlet{
                 
         
                 //Initialize
-                MR_ClientQueries queryFunc = new MR_ClientQueries();
+                ClientQueryLogic queryFunc = new ClientQueryLogic();
                 Date currentDate = new Date();
         
                 //get get parameters

@@ -10,7 +10,7 @@ import datalayer.ConnectionProvider;
  *
  * @author arlow
  */
-public class AR_TechnicanThing {
+public class TechLogic {
    ConnectionProvider cpt = new ConnectionProvider();
      /// Die een het nie n class nodig nie. Hoe kan die file dan die connection provider roep????
      

@@ -10,17 +10,17 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import businesslogiclayer.object.ServiceAgent;
-import businesslogiclayer.logic.ServiceAgentService;
+import businesslogiclayer.logic.CallAgentLogic;
 
 /**
  *
  * @author morne
  */
 public class ServiceAgentViewModel {
-    private final ServiceAgentService serviceAgentService;
+    private final CallAgentLogic serviceAgentService;
     
     public ServiceAgentViewModel(){
-        this.serviceAgentService = new ServiceAgentService();
+        this.serviceAgentService = new CallAgentLogic();
     }
     
     public String[] registerServiceAgent(String name, String surname, String email, String phoneNumber, String password, String confirmPassword) throws ClassNotFoundException{

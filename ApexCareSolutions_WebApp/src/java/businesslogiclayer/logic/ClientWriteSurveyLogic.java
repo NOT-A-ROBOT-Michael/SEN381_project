@@ -14,7 +14,7 @@ import datalayer.MR_SqlSurvey;
  *
  * @author iyesme
  */
-public class MR_writeSurvey {
+public class ClientWriteSurveyLogic {
     
     MR_SqlSurvey sqlSur= new MR_SqlSurvey();
     

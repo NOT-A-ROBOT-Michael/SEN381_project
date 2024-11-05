@@ -1,16 +1,16 @@
 
 package presentation;
 
+import businesslogiclayer.logic.CallAgentHomePageLogic;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import businesslogiclayer.logic.CallAgentHomePageLogic;
 
-@WebServlet("/declineRequestedService")
-public class DeclineServiceServlet extends HttpServlet
+@WebServlet("/completeService")
+public class CompleteServiceServlet extends HttpServlet
 {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -20,15 +20,15 @@ public class DeclineServiceServlet extends HttpServlet
         {
             Integer serviceID = Integer.parseInt(request.getParameter("hidden-ServiceID"));
         
-            csa_HomeLogic.declineService(serviceID);
+            csa_HomeLogic.completeService(serviceID);
             
         }
         catch (Exception e)
         {
-            System.out.println("!E!----- (DeclineServiceServlet) Error, while trying to change service status to declined: " + e.getMessage() + " -----!E!");
+            System.out.println("!E!----- (CompleteServiceServlet) Error, while trying to change service status to completed: " + e.getMessage() + " -----!E!");
         }
         
-        response.sendRedirect("./technician_HomePage");
+        response.sendRedirect("./ClientContracts");
         
     }
 }

@@ -4,7 +4,7 @@
     Author     : morne
 --%>
 
-<%@page import="businesslogiclayer.logic.TechnicianService"%>
+<%@page import="businesslogiclayer.logic.TechServiceLogic"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -163,7 +163,7 @@
                             <select name="specialization_Technician" id="specialization">
                                 <option value="0" disabled selected>Select a Specialisation</option>
                                 <%
-                                    TechnicianService ts = new TechnicianService();
+                                    TechServiceLogic ts = new TechServiceLogic();
 
                                     ArrayList<String[]> serviceTypes = ts.getServiceTypes();
 

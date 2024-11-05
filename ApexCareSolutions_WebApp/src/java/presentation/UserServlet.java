@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
-import businesslogiclayer.logic.AR_TechnicanThing;
+import businesslogiclayer.logic.TechLogic;
 import businesslogiclayer.logic.ServiceLogic;
 
 // The following servlet can be used by the client-, technician- and call service agent page
@@ -20,7 +20,7 @@ public class UserServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        AR_TechnicanThing techTask = new AR_TechnicanThing();
+        TechLogic techTask = new TechLogic();
         // Used to get the session info
         HttpSession session = request.getSession(false);
         

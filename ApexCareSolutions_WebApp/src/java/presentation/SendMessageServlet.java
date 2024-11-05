@@ -18,7 +18,7 @@ import com.twilio.type.PhoneNumber;
 import java.net.URI;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import businesslogiclayer.logic.CSA_ViewDetails_Logic;
+import businesslogiclayer.logic.CallAgentViewDetailLogic;
 
 @WebServlet("/sendMessage")
 public class SendMessageServlet extends HttpServlet
@@ -26,7 +26,7 @@ public class SendMessageServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        CSA_ViewDetails_Logic csa_DetailsLogic = new CSA_ViewDetails_Logic();
+        CallAgentViewDetailLogic csa_DetailsLogic = new CallAgentViewDetailLogic();
         
         String ACCOUNT_SID = System.getenv("twil_ID");
         String AUTH_TOKEN = System.getenv("twil_Token");

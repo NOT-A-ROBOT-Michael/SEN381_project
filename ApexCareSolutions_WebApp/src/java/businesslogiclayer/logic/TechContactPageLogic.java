@@ -11,7 +11,7 @@ import datalayer.ConnectionProvider;
  *
  * @author arlow
  */
-public class AR_ContactPageThing {
+public class TechContactPageLogic {
     ConnectionProvider cpt = new ConnectionProvider();
     AR_ContactPage contact = new AR_ContactPage();
     public void/*ContactPage*/ CreateNoteObject(Integer serviceID, String Query)

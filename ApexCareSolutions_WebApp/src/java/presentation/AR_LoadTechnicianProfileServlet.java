@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import businesslogiclayer.object.AR_TechnicianDetails;
-import businesslogiclayer.logic.AR_TechnicianDetailsPage;
+import businesslogiclayer.logic.TechDetailLogic;
 
 /**
  *
@@ -26,7 +26,7 @@ public class AR_LoadTechnicianProfileServlet extends HttpServlet {
         HttpSession session = request.getSession();
         
         //Instanciate techDetailsFunc
-        AR_TechnicianDetailsPage techDetailsFunc = new AR_TechnicianDetailsPage();
+        TechDetailLogic techDetailsFunc = new TechDetailLogic();
 
         //declare object x2
 

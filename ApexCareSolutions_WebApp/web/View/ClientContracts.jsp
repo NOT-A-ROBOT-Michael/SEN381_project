@@ -126,6 +126,12 @@
                                                     + "<input type=\"submit\" value=\"Complete Survey\" name=\"btn-CompleteSurvey\" class=\"btn\"/>"
                                                 + "</form>"
                                             + "</div>"
+                                            + "<div class=\"survey-block\">"
+                                                + "<form name=\"viewSurvey-" + (i++) + "\" action=\"completeService\" method=\"Post\">"
+                                                    + "<input type=\"hidden\" name=\"hidden-ServiceID\" value=\""+ service.GetServiceID().toString() +"\" size=\"15\" readonly=\"readonly\" />"
+                                                    + "<input type=\"submit\" value=\"Complete Service\" name=\"btn-CompleteService\" class=\"btn\"/>"
+                                                + "</form>"
+                                            + "</div>"
                                         + "</div>"
                                     + "</li>");
                                 }
@@ -209,7 +215,7 @@
                                                 + "<div class=\"list-container\">" 
                                                     + "<input class=\"info-text\" name=\"serviceID\" readonly=\"readonly\" size=\"3\" value=\""+ service.GetServiceID().toString() +"\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceTitle\" readonly=\"readonly\" size=\"3\" value=\""+ service.getServiceTitle() +"\"/>"
-                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\""+ service.GetTechnicianName() +"\"/>"
+                                                    + "<input class=\"info-text\" name=\"fullTechName\" readonly=\"readonly\" size=\"3\" value=\"Unassigned\"/>"
                                                     + "<input class=\"info-text\" name=\"serviceStatus\" readonly=\"readonly\" size=\"3\" value=\""+ service.GetStatus() +"\"/>"
                                                     + "<input type=\"submit\" value=\"View Details\" name=\"btn-ViewDetails\" class=\"btn\"/>"
                                                 + "</div>"

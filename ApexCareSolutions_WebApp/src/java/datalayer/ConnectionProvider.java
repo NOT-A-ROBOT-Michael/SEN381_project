@@ -609,6 +609,29 @@ public class ConnectionProvider {
         }
     }
     
+    // Sets a service's status to ongoing
+    public void updateServiceToComplete(Integer serviceID) throws ClassNotFoundException
+    {
+        // The query updates a specified service's status to ongoing
+        String query = "UPDATE \"Services\"SET \"Status\"=? WHERE \"ServiceID\"=?;";
+        
+        
+        
+        try(Connection conn = getCon(); PreparedStatement psmt = conn.prepareStatement(query);)
+        {
+            psmt.setString(1, "Completed");
+            psmt.setInt(2, serviceID);
+            
+            psmt.execute();
+            
+            System.out.println("!Info!----- Successfully updated service state to completed. -----!Info!");
+        }
+        catch (SQLException e)
+        {
+            System.out.println("!E!----- (ConnectionProvider -> updateServiceToDeclined) Error, while trying to set the service state to completed: " + e.getMessage() + " -----!E!");
+        }
+    }
+    
     // -------------------- Important Note ------------------------------
     // The following is not the correct way of setting the technician to a service
     // The following adds a technician to a indicated service

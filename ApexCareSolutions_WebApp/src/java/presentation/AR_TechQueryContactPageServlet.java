@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import businesslogiclayer.logic.AR_ContactPageThing;
+import businesslogiclayer.logic.TechContactPageLogic;
 
 /**
  *
@@ -22,7 +22,7 @@ public class AR_TechQueryContactPageServlet extends HttpServlet{
    {
 
    
-   AR_ContactPageThing Contact = new AR_ContactPageThing();
+   TechContactPageLogic Contact = new TechContactPageLogic();
    Integer TechID = Integer.valueOf(request.getParameter("txt_TechnicianID"));
    String Query =  request.getParameter("txt_query");
    Integer ServiceID = Integer.parseInt(request.getParameter("TaskDropdown")) ;

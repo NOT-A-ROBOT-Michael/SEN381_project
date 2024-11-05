@@ -11,7 +11,7 @@ import datalayer.ConnectionProvider;
  *
  * @author arlow
  */
-public class AR_NotesThing {
+public class NoteLogic {
     ConnectionProvider cpt = new ConnectionProvider();
     
     public AR_Notes CreateNoteObject(Integer serviceID, String note)

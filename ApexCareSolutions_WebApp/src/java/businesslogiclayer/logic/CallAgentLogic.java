@@ -14,10 +14,10 @@ import datalayer.ServiceAgentDAO;
  *
  * @author morne
  */
-public class ServiceAgentService {
+public class CallAgentLogic {
     private final ServiceAgentDAO serviceAgentDAO;
     
-    public ServiceAgentService(){
+    public CallAgentLogic(){
         this.serviceAgentDAO = new ServiceAgentDAO();
     }
     

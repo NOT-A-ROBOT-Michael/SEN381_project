@@ -6,7 +6,7 @@ import businesslogiclayer.object.Address;
 import datalayer.ConnectionProvider;
 
 
-public class LoadCategoriesLogic
+public class LoadCategoryLogic
 {
     ConnectionProvider cp = new ConnectionProvider();
     

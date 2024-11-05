@@ -2,7 +2,7 @@
 package businesslogiclayer.logic;
 import businesslogiclayer.object.Address;
 
-public class Address_Logic {
+public class AddressLogic {
     public Address createObject(Integer addressID, String country, String city, String state, String street){
         
         Address a = new Address(addressID, country, state, city, street);

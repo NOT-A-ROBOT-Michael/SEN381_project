@@ -9,7 +9,7 @@ package viewmodel;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import businesslogiclayer.logic.ClientService;
+import businesslogiclayer.logic.ClientServiceLogic;
 import businesslogiclayer.object.Address;
 import businesslogiclayer.object.Client;
 
@@ -18,10 +18,10 @@ import businesslogiclayer.object.Client;
  * @author morne
  */
 public class ClientViewModel {
-    private final ClientService clientService;
+    private final ClientServiceLogic clientService;
     
     public ClientViewModel(){
-        this.clientService = new ClientService();
+        this.clientService = new ClientServiceLogic();
     }
     
     public String[] registerClient(String name, String surname, String email, String phone, String password, String confirmPassword, String country, String state, String city, String streetName) throws ClassNotFoundException{

@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import businesslogiclayer.object.MR_Survey;
-import businesslogiclayer.logic.MR_writeSurvey;
+import businesslogiclayer.logic.ClientWriteSurveyLogic;
 
 
 @WebServlet("/viewSurvey")
@@ -34,7 +34,7 @@ public class MR_ClientViewSurveyServlet extends HttpServlet
                 Integer ServiceID;
                 
                 //Initialize
-                MR_writeSurvey surveyFunc = new MR_writeSurvey();
+                ClientWriteSurveyLogic surveyFunc = new ClientWriteSurveyLogic();
                 MR_Survey survey;
                 
                 //get serviceID from param
